@@ -1,0 +1,112 @@
+﻿<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <edmx:DataServices m:DataServiceVersion="1.0" m:MaxDataServiceVersion="3.0" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
+    <Schema Namespace="XXXX" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <EntityType Name="com_person">
+        <Key>
+          <PropertyRef Name="com_person_id" />
+        </Key>
+        <Property Name="com_person_id" Type="Edm.Guid" Nullable="false" />
+        <Property Name="person_no" Type="Edm.String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+        <Property Name="Other_no" Type="Edm.String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        <Property Name="person_name" Type="Edm.String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+        <Property Name="sex" Type="Edm.String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+        <Property Name="cert_id" Type="Edm.String" Nullable="false" MaxLength="18" FixedLength="false" Unicode="false" />
+        <Property Name="birthday" Type="Edm.DateTime" Nullable="false" Precision="3" />
+        <Property Name="nation" Type="Edm.Guid" />
+        <Property Name="party" Type="Edm.Guid" />
+        <Property Name="university" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        <Property Name="telephone" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        <Property Name="mobile" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        <Property Name="email" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        <Property Name="spec" Type="Edm.Guid" />
+        <Property Name="job_date" Type="Edm.DateTime" Nullable="false" Precision="3" />
+        <Property Name="education" Type="Edm.Guid" />
+        <Property Name="degree" Type="Edm.Guid" />
+        <Property Name="prof_cert_id" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        <Property Name="hospital_duty" Type="Edm.Guid" />
+        <Property Name="photo" Type="Edm.String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+        <Property Name="person_type" Type="Edm.Guid" />
+        <Property Name="remark" Type="Edm.String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+        <Property Name="passwd" Type="Edm.String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        <Property Name="Dept_id" Type="Edm.String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+        <Property Name="Update_other_no" Type="Edm.Byte" Nullable="false" />
+        <Property Name="Transfer_state" Type="Edm.Int32" Nullable="false" />
+        <Property Name="add_time" Type="Edm.DateTime" Nullable="false" Precision="3" />
+        <Property Name="BatchGuid" Type="Edm.Guid" />
+        <Property Name="is_create_card" Type="Edm.Boolean" />
+        <Property Name="is_charges" Type="Edm.Boolean" />
+        <Property Name="internals" Type="Edm.String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+        <Property Name="update_time" Type="Edm.DateTime" Nullable="false" Precision="3" />
+      </EntityType>
+      <EntityType Name="com_person_view">
+        <Key>
+          <PropertyRef Name="com_person_id" />
+          <PropertyRef Name="person_no" />
+          <PropertyRef Name="person_name" />
+          <PropertyRef Name="sex" />
+          <PropertyRef Name="birthday" />
+          <PropertyRef Name="Dept_id" />
+          <PropertyRef Name="Other_no" />
+          <PropertyRef Name="cert_id" />
+          <PropertyRef Name="university" />
+          <PropertyRef Name="telephone" />
+          <PropertyRef Name="mobile" />
+          <PropertyRef Name="email" />
+          <PropertyRef Name="job_date" />
+          <PropertyRef Name="prof_cert_id" />
+          <PropertyRef Name="photo" />
+          <PropertyRef Name="remark" />
+          <PropertyRef Name="passwd" />
+          <PropertyRef Name="add_time" />
+          <PropertyRef Name="Transfer_state" />
+          <PropertyRef Name="internals" />
+        </Key>
+        <Property Name="com_person_id" Type="Edm.Guid" Nullable="false" />
+        <Property Name="person_no" Type="Edm.String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+        <Property Name="person_name" Type="Edm.String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+        <Property Name="sex" Type="Edm.String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+        <Property Name="birthday" Type="Edm.DateTime" Nullable="false" Precision="3" />
+        <Property Name="Dept_id" Type="Edm.String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+        <Property Name="dept_name" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="false" />
+        <Property Name="title_name" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="false" />
+        <Property Name="title_id" Type="Edm.Guid" />
+        <Property Name="unit" Type="Edm.String" MaxLength="6" FixedLength="true" Unicode="false" />
+        <Property Name="person_state_name" Type="Edm.String" MaxLength="20" FixedLength="false" Unicode="false" />
+        <Property Name="Other_no" Type="Edm.String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        <Property Name="cert_id" Type="Edm.String" Nullable="false" MaxLength="18" FixedLength="false" Unicode="false" />
+        <Property Name="nation" Type="Edm.Guid" />
+        <Property Name="party" Type="Edm.Guid" />
+        <Property Name="university" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        <Property Name="telephone" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        <Property Name="mobile" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        <Property Name="email" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        <Property Name="spec" Type="Edm.Guid" />
+        <Property Name="job_date" Type="Edm.DateTime" Nullable="false" Precision="3" />
+        <Property Name="education" Type="Edm.Guid" />
+        <Property Name="degree" Type="Edm.Guid" />
+        <Property Name="prof_cert_id" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        <Property Name="hospital_duty" Type="Edm.Guid" />
+        <Property Name="photo" Type="Edm.String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+        <Property Name="person_type" Type="Edm.Guid" />
+        <Property Name="remark" Type="Edm.String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+        <Property Name="passwd" Type="Edm.String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        <Property Name="add_time" Type="Edm.DateTime" Nullable="false" Precision="3" />
+        <Property Name="Transfer_state" Type="Edm.Int32" Nullable="false" />
+        <Property Name="nation_name" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="false" />
+        <Property Name="party_name" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="false" />
+        <Property Name="Spec_name" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="false" />
+        <Property Name="education_name" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="false" />
+        <Property Name="Degree_name" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="false" />
+        <Property Name="hospital_duty_name" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="false" />
+        <Property Name="internals" Type="Edm.String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+        <Property Name="unit_name" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="false" />
+      </EntityType>
+    </Schema>
+    <Schema Namespace="HY.Frame.Bis" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <EntityContainer Name="DBEntities" m:IsDefaultEntityContainer="true" p6:LazyLoadingEnabled="true" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntitySet Name="com_person" EntityType="XXXX.com_person" />
+        <EntitySet Name="com_person_view" EntityType="XXXX.com_person_view" />
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
