@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B41A0382-B464-45DB-B087-4843C8D957E2}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HY.Frame.Web</RootNamespace>
+    <AssemblyName>HY.Frame.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <SilverlightApplicationList>
+    </SilverlightApplicationList>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Data.Edm.5.0.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Data.OData.5.0.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Data.Services.5.0.0\lib\net40\Microsoft.Data.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.0.0\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Spatial, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\System.Spatial.5.0.0\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\log4net.xml" />
+    <Content Include="App_Data\Msg.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="bootstrap\css\bootstrap-responsive.css" />
+    <Content Include="bootstrap\css\bootstrap-responsive.min.css" />
+    <Content Include="bootstrap\css\bootstrap.css" />
+    <Content Include="bootstrap\css\bootstrap.min.css" />
+    <Content Include="bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="bootstrap\js\bootstrap.js" />
+    <Content Include="bootstrap\js\bootstrap.min.js" />
+    <Content Include="Core\BS.js" />
+    <Content Include="Core\index.js" />
+    <Content Include="Content\favicon.ico" />
+    <Content Include="Core\jquery.form.js" />
+    <Content Include="DS.svc" />
+    <Content Include="Index.aspx" />
+    <Content Include="Scripts\datajs-1.1.0.js" />
+    <Content Include="Scripts\datajs-1.1.0.min.js" />
+    <Content Include="BS.Master" />
+    <Content Include="Core\BS.pager.js" />
+    <Content Include="Content\bootstrap.ext.css" />
+    <Content Include="Core\jquery.validate.ext.js" />
+    <Content Include="Api\Log.ashx" />
+    <Content Include="Api\SQL.ashx" />
+    <None Include="Scripts\jquery-1.8.3.intellisense.js" />
+    <None Include="Scripts\jaydata-vsdoc.js" />
+    <Content Include="Scripts\jaydata.d.ts" />
+    <Content Include="Scripts\jaydata.js" />
+    <Content Include="Scripts\jaydata.min.js" />
+    <Content Include="Scripts\JayDataContext.js" />
+    <Content Include="Scripts\jaydatamodules\deferred.js" />
+    <Content Include="Scripts\jaydatamodules\errorhandler.js" />
+    <Content Include="Scripts\jaydatamodules\formBinder.js" />
+    <Content Include="Scripts\jaydatamodules\handlebars.js" />
+    <Content Include="Scripts\jaydatamodules\inMemory.js" />
+    <Content Include="Scripts\jaydatamodules\knockout.js" />
+    <Content Include="Scripts\jaydatamodules\qDeferred.js" />
+    <Content Include="Scripts\jaydatamodules\sencha.js" />
+    <Content Include="Scripts\jaydatamodules\template.js" />
+    <Content Include="Scripts\jaydatamodules\validate.js" />
+    <Content Include="Scripts\jaydataproviders\FacebookProvider.js" />
+    <Content Include="Scripts\jaydataproviders\FacebookProvider.min.js" />
+    <Content Include="Scripts\jaydataproviders\IndexedDbProvider.js" />
+    <Content Include="Scripts\jaydataproviders\IndexedDbProvider.min.js" />
+    <Content Include="Scripts\jaydataproviders\InMemoryProvider.js" />
+    <Content Include="Scripts\jaydataproviders\InMemoryProvider.min.js" />
+    <Content Include="Scripts\jaydataproviders\MongoDbProvider.js" />
+    <Content Include="Scripts\jaydataproviders\MongoDbProvider.min.js" />
+    <Content Include="Scripts\jaydataproviders\oDataProvider.js" />
+    <Content Include="Scripts\jaydataproviders\oDataProvider.min.js" />
+    <Content Include="Scripts\jaydataproviders\SqLiteProvider.js" />
+    <Content Include="Scripts\jaydataproviders\SqLiteProvider.min.js" />
+    <Content Include="Scripts\jaydataproviders\StormProvider.js" />
+    <Content Include="Scripts\jaydataproviders\StormProvider.min.js" />
+    <Content Include="Scripts\jaydataproviders\YQLProvider.js" />
+    <Content Include="Scripts\jaydataproviders\YQLProvider.min.js" />
+    <Content Include="Scripts\jquery-1.8.3.js" />
+    <Content Include="Scripts\jquery-1.8.3.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.messages_zh.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="View\JaySample.aspx" />
+    <Content Include="View\pager.aspx" />
+    <Content Include="View\Sample.aspx" />
+    <Content Include="View\scroll.aspx" />
+    <Content Include="View\simulator.aspx" />
+    <Content Include="View\Query.aspx" />
+    <Content Include="View\validate.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BS.Master.cs">
+      <DependentUpon>BS.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BS.Master.designer.cs">
+      <DependentUpon>BS.Master</DependentUpon>
+    </Compile>
+    <Compile Include="DS.svc.cs">
+      <DependentUpon>DS.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="View\data.ashx" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HY.Frame.Bis\HY.Frame.Bis.csproj">
+      <Project>{ddc02324-a9fe-4d67-8805-0fcafe746f1b}</Project>
+      <Name>HY.Frame.Bis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HY.Frame.Core\HY.Frame.Core.csproj">
+      <Project>{04cd4d75-ca99-4c7d-a5b8-d9c88a4c3574}</Project>
+      <Name>HY.Frame.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>58164</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:27204/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
