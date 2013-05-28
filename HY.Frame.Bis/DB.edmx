@@ -1,0 +1,377 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="kjpt_commonModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="kjpt_commonModelStoreContainer">
+          <EntitySet Name="com_person" EntityType="kjpt_commonModel.Store.com_person" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="com_person_view" EntityType="kjpt_commonModel.Store.com_person_view" store:Type="Views" store:Schema="dbo" store:Name="com_person_view">
+            <DefiningQuery>SELECT 
+      [com_person_view].[com_person_id] AS [com_person_id], 
+      [com_person_view].[person_no] AS [person_no], 
+      [com_person_view].[person_name] AS [person_name], 
+      [com_person_view].[sex] AS [sex], 
+      [com_person_view].[birthday] AS [birthday], 
+      [com_person_view].[Dept_id] AS [Dept_id], 
+      [com_person_view].[dept_name] AS [dept_name], 
+      [com_person_view].[title_name] AS [title_name], 
+      [com_person_view].[title_id] AS [title_id], 
+      [com_person_view].[unit] AS [unit], 
+      [com_person_view].[person_state_name] AS [person_state_name], 
+      [com_person_view].[Other_no] AS [Other_no], 
+      [com_person_view].[cert_id] AS [cert_id], 
+      [com_person_view].[nation] AS [nation], 
+      [com_person_view].[party] AS [party], 
+      [com_person_view].[university] AS [university], 
+      [com_person_view].[telephone] AS [telephone], 
+      [com_person_view].[mobile] AS [mobile], 
+      [com_person_view].[email] AS [email], 
+      [com_person_view].[spec] AS [spec], 
+      [com_person_view].[job_date] AS [job_date], 
+      [com_person_view].[education] AS [education], 
+      [com_person_view].[degree] AS [degree], 
+      [com_person_view].[prof_cert_id] AS [prof_cert_id], 
+      [com_person_view].[hospital_duty] AS [hospital_duty], 
+      [com_person_view].[photo] AS [photo], 
+      [com_person_view].[person_type] AS [person_type], 
+      [com_person_view].[remark] AS [remark], 
+      [com_person_view].[passwd] AS [passwd], 
+      [com_person_view].[add_time] AS [add_time], 
+      [com_person_view].[Transfer_state] AS [Transfer_state], 
+      [com_person_view].[nation_name] AS [nation_name], 
+      [com_person_view].[party_name] AS [party_name], 
+      [com_person_view].[Spec_name] AS [Spec_name], 
+      [com_person_view].[education_name] AS [education_name], 
+      [com_person_view].[Degree_name] AS [Degree_name], 
+      [com_person_view].[hospital_duty_name] AS [hospital_duty_name], 
+      [com_person_view].[internals] AS [internals], 
+      [com_person_view].[unit_name] AS [unit_name]
+      FROM [dbo].[com_person_view] AS [com_person_view]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <EntityType Name="com_person">
+          <Key>
+            <PropertyRef Name="com_person_id" />
+          </Key>
+          <Property Name="com_person_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="person_no" Type="char" Nullable="false" MaxLength="10" />
+          <Property Name="Other_no" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="person_name" Type="varchar" Nullable="false" MaxLength="40" />
+          <Property Name="sex" Type="char" Nullable="false" MaxLength="2" />
+          <Property Name="cert_id" Type="varchar" Nullable="false" MaxLength="18" />
+          <Property Name="birthday" Type="datetime" Nullable="false" />
+          <Property Name="nation" Type="uniqueidentifier" />
+          <Property Name="party" Type="uniqueidentifier" />
+          <Property Name="university" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="telephone" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="mobile" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="email" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="spec" Type="uniqueidentifier" />
+          <Property Name="job_date" Type="datetime" Nullable="false" />
+          <Property Name="education" Type="uniqueidentifier" />
+          <Property Name="degree" Type="uniqueidentifier" />
+          <Property Name="prof_cert_id" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="hospital_duty" Type="uniqueidentifier" />
+          <Property Name="photo" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="person_type" Type="uniqueidentifier" />
+          <Property Name="remark" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="passwd" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Dept_id" Type="char" Nullable="false" MaxLength="9" />
+          <Property Name="Update_other_no" Type="tinyint" Nullable="false" />
+          <Property Name="Transfer_state" Type="int" Nullable="false" />
+          <Property Name="add_time" Type="datetime" Nullable="false" />
+          <Property Name="BatchGuid" Type="uniqueidentifier" />
+          <Property Name="is_create_card" Type="bit" />
+          <Property Name="is_charges" Type="bit" />
+          <Property Name="internals" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="update_time" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+      警告 6002: 表/视图“kjpt_common.dbo.com_person_view”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+        <EntityType Name="com_person_view">
+          <Key>
+            <PropertyRef Name="com_person_id" />
+            <PropertyRef Name="person_no" />
+            <PropertyRef Name="person_name" />
+            <PropertyRef Name="sex" />
+            <PropertyRef Name="birthday" />
+            <PropertyRef Name="Dept_id" />
+            <PropertyRef Name="Other_no" />
+            <PropertyRef Name="cert_id" />
+            <PropertyRef Name="university" />
+            <PropertyRef Name="telephone" />
+            <PropertyRef Name="mobile" />
+            <PropertyRef Name="email" />
+            <PropertyRef Name="job_date" />
+            <PropertyRef Name="prof_cert_id" />
+            <PropertyRef Name="photo" />
+            <PropertyRef Name="remark" />
+            <PropertyRef Name="passwd" />
+            <PropertyRef Name="add_time" />
+            <PropertyRef Name="Transfer_state" />
+            <PropertyRef Name="internals" />
+          </Key>
+          <Property Name="com_person_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="person_no" Type="char" Nullable="false" MaxLength="10" />
+          <Property Name="person_name" Type="varchar" Nullable="false" MaxLength="40" />
+          <Property Name="sex" Type="char" Nullable="false" MaxLength="2" />
+          <Property Name="birthday" Type="datetime" Nullable="false" />
+          <Property Name="Dept_id" Type="char" Nullable="false" MaxLength="9" />
+          <Property Name="dept_name" Type="varchar" MaxLength="100" />
+          <Property Name="title_name" Type="varchar" MaxLength="50" />
+          <Property Name="title_id" Type="uniqueidentifier" />
+          <Property Name="unit" Type="char" MaxLength="6" />
+          <Property Name="person_state_name" Type="varchar" MaxLength="20" />
+          <Property Name="Other_no" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="cert_id" Type="varchar" Nullable="false" MaxLength="18" />
+          <Property Name="nation" Type="uniqueidentifier" />
+          <Property Name="party" Type="uniqueidentifier" />
+          <Property Name="university" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="telephone" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="mobile" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="email" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="spec" Type="uniqueidentifier" />
+          <Property Name="job_date" Type="datetime" Nullable="false" />
+          <Property Name="education" Type="uniqueidentifier" />
+          <Property Name="degree" Type="uniqueidentifier" />
+          <Property Name="prof_cert_id" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="hospital_duty" Type="uniqueidentifier" />
+          <Property Name="photo" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="person_type" Type="uniqueidentifier" />
+          <Property Name="remark" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="passwd" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="add_time" Type="datetime" Nullable="false" />
+          <Property Name="Transfer_state" Type="int" Nullable="false" />
+          <Property Name="nation_name" Type="varchar" MaxLength="100" />
+          <Property Name="party_name" Type="varchar" MaxLength="100" />
+          <Property Name="Spec_name" Type="varchar" MaxLength="100" />
+          <Property Name="education_name" Type="varchar" MaxLength="100" />
+          <Property Name="Degree_name" Type="varchar" MaxLength="100" />
+          <Property Name="hospital_duty_name" Type="varchar" MaxLength="100" />
+          <Property Name="internals" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="unit_name" Type="varchar" MaxLength="100" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="XXXX" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="com_person" EntityType="XXXX.com_person" />
+          <EntitySet Name="com_person_view" EntityType="XXXX.com_person_view" />
+        </EntityContainer>
+        <EntityType Name="com_person">
+          <Key>
+            <PropertyRef Name="com_person_id" />
+          </Key>
+          <Property Name="com_person_id" Type="Guid" Nullable="false" />
+          <Property Name="person_no" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="Other_no" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="person_name" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="sex" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="true" />
+          <Property Name="cert_id" Type="String" Nullable="false" MaxLength="18" Unicode="false" FixedLength="false" />
+          <Property Name="birthday" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="nation" Type="Guid" />
+          <Property Name="party" Type="Guid" />
+          <Property Name="university" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="telephone" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="mobile" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="spec" Type="Guid" />
+          <Property Name="job_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="education" Type="Guid" />
+          <Property Name="degree" Type="Guid" />
+          <Property Name="prof_cert_id" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="hospital_duty" Type="Guid" />
+          <Property Name="photo" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="person_type" Type="Guid" />
+          <Property Name="remark" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="passwd" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Dept_id" Type="String" Nullable="false" MaxLength="9" Unicode="false" FixedLength="true" />
+          <Property Name="Update_other_no" Type="Byte" Nullable="false" />
+          <Property Name="Transfer_state" Type="Int32" Nullable="false" />
+          <Property Name="add_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="BatchGuid" Type="Guid" />
+          <Property Name="is_create_card" Type="Boolean" />
+          <Property Name="is_charges" Type="Boolean" />
+          <Property Name="internals" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="update_time" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="com_person_view">
+          <Key>
+            <PropertyRef Name="com_person_id" />
+            <PropertyRef Name="person_no" />
+            <PropertyRef Name="person_name" />
+            <PropertyRef Name="sex" />
+            <PropertyRef Name="birthday" />
+            <PropertyRef Name="Dept_id" />
+            <PropertyRef Name="Other_no" />
+            <PropertyRef Name="cert_id" />
+            <PropertyRef Name="university" />
+            <PropertyRef Name="telephone" />
+            <PropertyRef Name="mobile" />
+            <PropertyRef Name="email" />
+            <PropertyRef Name="job_date" />
+            <PropertyRef Name="prof_cert_id" />
+            <PropertyRef Name="photo" />
+            <PropertyRef Name="remark" />
+            <PropertyRef Name="passwd" />
+            <PropertyRef Name="add_time" />
+            <PropertyRef Name="Transfer_state" />
+            <PropertyRef Name="internals" />
+          </Key>
+          <Property Name="com_person_id" Type="Guid" Nullable="false" />
+          <Property Name="person_no" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="person_name" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="sex" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="true" />
+          <Property Name="birthday" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Dept_id" Type="String" Nullable="false" MaxLength="9" Unicode="false" FixedLength="true" />
+          <Property Name="dept_name" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="title_name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="title_id" Type="Guid" />
+          <Property Name="unit" Type="String" MaxLength="6" Unicode="false" FixedLength="true" />
+          <Property Name="person_state_name" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Other_no" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="cert_id" Type="String" Nullable="false" MaxLength="18" Unicode="false" FixedLength="false" />
+          <Property Name="nation" Type="Guid" />
+          <Property Name="party" Type="Guid" />
+          <Property Name="university" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="telephone" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="mobile" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="spec" Type="Guid" />
+          <Property Name="job_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="education" Type="Guid" />
+          <Property Name="degree" Type="Guid" />
+          <Property Name="prof_cert_id" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="hospital_duty" Type="Guid" />
+          <Property Name="photo" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="person_type" Type="Guid" />
+          <Property Name="remark" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="passwd" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="add_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Transfer_state" Type="Int32" Nullable="false" />
+          <Property Name="nation_name" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="party_name" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Spec_name" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="education_name" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Degree_name" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="hospital_duty_name" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="internals" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="unit_name" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="kjpt_commonModelStoreContainer" CdmEntityContainer="DBEntities">
+          <EntitySetMapping Name="com_person">
+            <EntityTypeMapping TypeName="XXXX.com_person">
+              <MappingFragment StoreEntitySet="com_person">
+                <ScalarProperty Name="com_person_id" ColumnName="com_person_id" />
+                <ScalarProperty Name="person_no" ColumnName="person_no" />
+                <ScalarProperty Name="Other_no" ColumnName="Other_no" />
+                <ScalarProperty Name="person_name" ColumnName="person_name" />
+                <ScalarProperty Name="sex" ColumnName="sex" />
+                <ScalarProperty Name="cert_id" ColumnName="cert_id" />
+                <ScalarProperty Name="birthday" ColumnName="birthday" />
+                <ScalarProperty Name="nation" ColumnName="nation" />
+                <ScalarProperty Name="party" ColumnName="party" />
+                <ScalarProperty Name="university" ColumnName="university" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="spec" ColumnName="spec" />
+                <ScalarProperty Name="job_date" ColumnName="job_date" />
+                <ScalarProperty Name="education" ColumnName="education" />
+                <ScalarProperty Name="degree" ColumnName="degree" />
+                <ScalarProperty Name="prof_cert_id" ColumnName="prof_cert_id" />
+                <ScalarProperty Name="hospital_duty" ColumnName="hospital_duty" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="person_type" ColumnName="person_type" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="passwd" ColumnName="passwd" />
+                <ScalarProperty Name="Dept_id" ColumnName="Dept_id" />
+                <ScalarProperty Name="Update_other_no" ColumnName="Update_other_no" />
+                <ScalarProperty Name="Transfer_state" ColumnName="Transfer_state" />
+                <ScalarProperty Name="add_time" ColumnName="add_time" />
+                <ScalarProperty Name="BatchGuid" ColumnName="BatchGuid" />
+                <ScalarProperty Name="is_create_card" ColumnName="is_create_card" />
+                <ScalarProperty Name="is_charges" ColumnName="is_charges" />
+                <ScalarProperty Name="internals" ColumnName="internals" />
+                <ScalarProperty Name="update_time" ColumnName="update_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="com_person_view">
+            <EntityTypeMapping TypeName="XXXX.com_person_view">
+              <MappingFragment StoreEntitySet="com_person_view">
+                <ScalarProperty Name="com_person_id" ColumnName="com_person_id" />
+                <ScalarProperty Name="person_no" ColumnName="person_no" />
+                <ScalarProperty Name="person_name" ColumnName="person_name" />
+                <ScalarProperty Name="sex" ColumnName="sex" />
+                <ScalarProperty Name="birthday" ColumnName="birthday" />
+                <ScalarProperty Name="Dept_id" ColumnName="Dept_id" />
+                <ScalarProperty Name="dept_name" ColumnName="dept_name" />
+                <ScalarProperty Name="title_name" ColumnName="title_name" />
+                <ScalarProperty Name="title_id" ColumnName="title_id" />
+                <ScalarProperty Name="unit" ColumnName="unit" />
+                <ScalarProperty Name="person_state_name" ColumnName="person_state_name" />
+                <ScalarProperty Name="Other_no" ColumnName="Other_no" />
+                <ScalarProperty Name="cert_id" ColumnName="cert_id" />
+                <ScalarProperty Name="nation" ColumnName="nation" />
+                <ScalarProperty Name="party" ColumnName="party" />
+                <ScalarProperty Name="university" ColumnName="university" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="spec" ColumnName="spec" />
+                <ScalarProperty Name="job_date" ColumnName="job_date" />
+                <ScalarProperty Name="education" ColumnName="education" />
+                <ScalarProperty Name="degree" ColumnName="degree" />
+                <ScalarProperty Name="prof_cert_id" ColumnName="prof_cert_id" />
+                <ScalarProperty Name="hospital_duty" ColumnName="hospital_duty" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="person_type" ColumnName="person_type" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="passwd" ColumnName="passwd" />
+                <ScalarProperty Name="add_time" ColumnName="add_time" />
+                <ScalarProperty Name="Transfer_state" ColumnName="Transfer_state" />
+                <ScalarProperty Name="nation_name" ColumnName="nation_name" />
+                <ScalarProperty Name="party_name" ColumnName="party_name" />
+                <ScalarProperty Name="Spec_name" ColumnName="Spec_name" />
+                <ScalarProperty Name="education_name" ColumnName="education_name" />
+                <ScalarProperty Name="Degree_name" ColumnName="Degree_name" />
+                <ScalarProperty Name="hospital_duty_name" ColumnName="hospital_duty_name" />
+                <ScalarProperty Name="internals" ColumnName="internals" />
+                <ScalarProperty Name="unit_name" ColumnName="unit_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
