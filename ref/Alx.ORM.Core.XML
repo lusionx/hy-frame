@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alx.ORM.Core</name>
+    </assembly>
+    <members>
+        <member name="M:Alx.ORM.Core.AttrCache.SetDelegate(System.Reflection.MethodInfo)">
+            <summary>
+            生成Set委托
+            </summary>
+            <param name="method"></param>
+        </member>
+        <member name="M:Alx.ORM.Core.AttrCache.GetDelegate(System.Reflection.MethodInfo)">
+            <summary>
+            生成Get委托
+            </summary>
+            <param name="method"></param>
+        </member>
+        <member name="P:Alx.ORM.Core.ColumnAttribute.Property">
+            <summary>
+            本Attr修饰的属性
+            </summary>
+        </member>
+        <member name="M:Alx.ORM.Core.ISpecial.FixValue(System.Object)">
+            <summary>
+            提取类属性值,经过此方法转换,传给DbParameter.Value
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alx.ORM.Core.ISpecial.SqlSelect(Alx.ORM.Core.TabelAttribute,System.String,System.Collections.Generic.List{System.String},System.Int32,System.Int32)">
+            <summary>
+            单表查询的时候,拼接select
+            </summary>
+            <param name="tableAttr"></param>
+            <param name="where"></param>
+            <param name="parNames"></param>
+            <param name="skip"></param>
+            <param name="take"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alx.ORM.Core.ISpecial.ChangeType(System.Object,System.Type)">
+            <summary>
+            读取数据的时候,改变数据库类型为C# 类型
+            </summary>
+            <param name="value"></param>
+            <param name="conversionType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Alx.ORM.Core.Parameter">
+            <summary>
+            显示类型化参数
+            </summary>
+        </member>
+        <member name="T:Alx.ORM.Core.ObjectContext">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Alx.ORM.Core.ObjectContext.#ctor(System.String,System.Data.Common.DbProviderFactory,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="connectionStr"></param>
+            <param name="factory"></param>
+            <param name="sp">适配器 SQL, SQLite, Oracle</param>
+        </member>
+        <member name="M:Alx.ORM.Core.ObjectContext.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="connectionStr"></param>
+        </member>
+        <member name="M:Alx.ORM.Core.ObjectContext.#ctor(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="connectionStr">连接字符串</param>
+            <param name="factoryStr">工厂字符串 eg:Oracle.DataAccess, Oracle.DataAccess.Client.OracleClientFactory,Oracle</param>
+        </member>
+        <member name="M:Alx.ORM.Core.ObjectContext.Insert(Alx.ORM.Core.TableBase)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alx.ORM.Core.ObjectContext.Update(Alx.ORM.Core.TableBase)">
+            <summary>
+            更新
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alx.ORM.Core.ObjectContext.Query``1(System.Func{``0,System.Boolean})">
+            <summary>
+            未实现 不要调用
+            </summary>
+            <typeparam name="Model"></typeparam>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alx.ORM.Core.ObjectContext.Query``1(System.String,System.Collections.Generic.IEnumerable{System.Object})">
+            <summary>
+            单表查询
+            </summary>
+            <typeparam name="Model"></typeparam>
+            <param name="where">name = ? and age = ?</param>
+            <param name="pars"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alx.ORM.Core.ObjectContext.Query``1(System.String,System.Collections.Generic.IEnumerable{System.Object},System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <typeparam name="Model"></typeparam>
+            <param name="where">name = ? and age = ?</param>
+            <param name="pars">有默认DbType规则,也可指定Parameter </param>
+            <param name="skip"></param>
+            <param name="take"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alx.ORM.Core.ObjectContext.Query(System.String,System.Collections.Generic.IEnumerable{System.Object})">
+            <summary>
+            自定义查询
+            </summary>
+            <param name="sql">select a,b from tt where a= ? and b = ?</param>
+            <param name="pars">object[],可夹杂  Alx.ORM.Core.Parameter实例</param>
+            <returns></returns>
+        </member>
+        <member name="M:Alx.ORM.Core.ObjectContext.Query``1">
+            <summary>
+            单表 全表查询
+            </summary>
+            <typeparam name="Model"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="P:Alx.ORM.Core.ObjectContext.ParamPerFix">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Alx.ORM.Core.SpOracle.ChangeType(System.Object,System.Type)">
+            <summary>
+            oracle 类型转换 raw => byte[] => Guid
+            </summary>
+            <param name="value"></param>
+            <param name="conversionType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alx.ORM.Core.SpSQLite.SqlSelect(Alx.ORM.Core.TabelAttribute,System.String,System.Collections.Generic.List{System.String},System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="tableAttr"></param>
+            <param name="where">name = ? and age = ?</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
