@@ -55,6 +55,8 @@
   <ItemGroup>
     <Compile Include="Authorization.cs" />
     <Compile Include="CacheData.cs" />
+    <Compile Include="IJSON.cs" />
+    <Compile Include="Registration.cs" />
     <Compile Include="ResResult.cs" />
     <Compile Include="Extensions\ArrayExtensions.cs" />
     <Compile Include="Extensions\WebExtensions.cs" />
