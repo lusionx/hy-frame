@@ -5,6 +5,8 @@ obj
 bin
 packages/*
 *.suo
+*.user
+Thumbs.db
 
 # 忽略所有生成的 html 文件,
 
