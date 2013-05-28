@@ -3,7 +3,7 @@
 # 忽略掉所有文件名
 obj
 bin
-packages
+packages/*
 
 # 忽略所有生成的 html 文件,
 
