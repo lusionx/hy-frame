@@ -7,6 +7,6 @@ namespace HY.Frame.Core
 {
     public interface IJSON
     {
-        string ToJSON();
+        string ToJSON(object obj);
     }
 }

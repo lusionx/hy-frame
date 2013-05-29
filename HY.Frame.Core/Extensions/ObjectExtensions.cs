@@ -5,9 +5,9 @@ using System.Text;
 
 namespace HY.Frame.Core
 {
-    public static class ObjectExtensionx
+    public class ObjectExtensions
     {
-        public static string ToJson(this object obj)
+        public static string ToJson(object obj)
         {
             System.Web.Script.Serialization.JavaScriptSerializer jss = new System.Web.Script.Serialization.JavaScriptSerializer();
             return jss.Serialize(obj);

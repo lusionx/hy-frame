@@ -30,6 +30,7 @@ namespace HY.Frame.Core
         }
 
         protected HttpRequest Request { get; set; }
+        protected HttpResponse Response { get; set; }
 
         protected log4net.ILog Logger { get; set; }
 
@@ -38,6 +39,7 @@ namespace HY.Frame.Core
             Logger = Log.Get(this.GetType());
             Request = context.Request;
             Logger.InfoFormat("url:{0}", Request.Url.OriginalString);
+            Response = context.Response;
         }
 
         public void ProcessRequest(HttpContext context)
@@ -61,28 +63,35 @@ namespace HY.Frame.Core
                 #region 获得 实例 委托
                 var url = FixUrl();
                 var path = url.Split(new string[] { ".", "/" }, StringSplitOptions.RemoveEmptyEntries);
-                var mothod = path[path.Length - 1];
+                var mothod = path[path.Length - 1];//去掉末尾的 .c
                 var clsName = string.Join(".", path.Take(path.Length - 1).ToArray());
 
                 //得到正确的程序集
                 Assembly assem = GetAssembly(context.Request.PhysicalApplicationPath, path);
                 if (assem == null)
                 {
-                    context.Response.Write("没有找到程序集");
+                    Response.Write("没有找到程序集");
                     return;
                 }
 
                 instance = GetInstance(assem, clsName);
                 if (instance == null)
                 {
-                    context.Response.Write("没有找到要访问的类");
+                    Response.Write("没有找到要访问的类");
                     return;
                 }
 
                 methodInf = instance.GetType().GetMethod(mothod, BindingFlags.Instance | BindingFlags.Public | BindingFlags.IgnoreCase);
                 if (methodInf == null)
                 {
-                    context.Response.Write("没有找到要访问的方法");
+                    Response.Write("没有找到要访问的方法");
+                    return;
+                }
+
+                if (!methodInf.GetCustomAttributes(false).Any(a => a is WebApiAttribute)
+                    && methodInf.ReturnType != typeof(ResResult))
+                {
+                    Response.Write("拒绝访问方法");
                     return;
                 }
 
@@ -111,28 +120,41 @@ namespace HY.Frame.Core
                 result = new ResResult { error = true, msg = e.Message };
             }
 
-            context.Response.AppendHeader("Cache-Control", "no-cache");
-            context.Response.AppendHeader("Pragma", "no-cache");
-            context.Response.AppendHeader("Expires", "0");
+            Response.AppendHeader("Cache-Control", "no-cache");
+            Response.AppendHeader("Pragma", "no-cache");
+            Response.AppendHeader("Expires", "0");
 
+            ResponseResult(result);
+        }
+
+        protected void ResponseResult(object result)
+        {
+            Func<object, string> js = (e) => ObjectExtensions.ToJson(e);
             if (result is ResStringResult)
             {
-                context.Response.Write((result as ResStringResult).data.ToString());
+                Response.Write((result as ResStringResult).data.ToString());
             }
             else if (result is ResJsonResult)
             {
-                context.Response.Write((result as ResJsonResult).data.ToJson());
+                Response.Write(js((result as ResJsonResult).data));
             }
             else if (result is ResResult)
             {
-                context.Response.Write((result as ResResult).ToJson());
+                Response.Write(js((result as ResResult)));
             }
             else
             {
-                context.Response.Write(result);
+                var ijson = Registration.FindIJSON(result);
+
+                Response.Write(ijson.ToJSON(result));
             }
         }
 
+        /// <summary>
+        /// 得到参数列表
+        /// </summary>
+        /// <param name="methodInf"></param>
+        /// <returns></returns>
         protected IEnumerable<object> GetParameterValue(MethodInfo methodInf)
         {
             var parsVal = new List<object>();

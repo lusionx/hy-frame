@@ -62,7 +62,7 @@
     <Compile Include="Extensions\WebExtensions.cs" />
     <Compile Include="Extensions\ConverExtensions.cs" />
     <Compile Include="Extensions\DataTableExtensions.cs" />
-    <Compile Include="Extensions\ObjectExtensionx.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="MAgentFactory.cs" />
     <Compile Include="Toolkit\ConfigBase.cs" />

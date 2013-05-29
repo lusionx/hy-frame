@@ -26,7 +26,7 @@ namespace HY.Frame.Core
                     sb.AppendFormat(sp[2], dt.Columns[i].ColumnName);
                     sb.Append(sp[1]);
                     var v = dr[i];
-                    if (vtype.Contains(v))
+                    if (vtype.Contains(v.GetType()))
                     {
                         sb.Append(v);
                     }
