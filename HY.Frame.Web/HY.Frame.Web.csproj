@@ -93,6 +93,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Auth.xml" />
     <Content Include="App_Data\log4net.xml" />
     <Content Include="App_Data\Msg.xml">
       <SubType>Designer</SubType>
@@ -193,12 +194,6 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="View\data.ashx" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HY.Frame.Bis\HY.Frame.Bis.csproj">

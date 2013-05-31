@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<root>
+  <roles>
+    <add name="" desc=""/>
+  </roles>
+  <node url="" title=""  desc="根菜单,不会用来显示">
+    <node url="" title=""  desc="" roles="" />
+    <node url="" title=""  desc="" roles="" />
+  </node>
+
+  <mods des="所有权限:页,页中的行为">
+    <add url="" action="" roles=""/>
+    <add url="" action="" roles=""/>
+    <add url="" action="" roles=""/>
+  </mods>
+</root>
+
