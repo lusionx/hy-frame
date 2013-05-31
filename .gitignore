@@ -7,6 +7,7 @@ packages/*
 *.suo
 *.user
 Thumbs.db
+HY.Frame.Web/Logs/*
 
 # 忽略所有生成的 html 文件,
 

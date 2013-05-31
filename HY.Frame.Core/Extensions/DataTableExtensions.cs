@@ -11,10 +11,10 @@ namespace HY.Frame.Core
         public static string ToJson(this DataTable dt)
         {
             StringBuilder sb = new StringBuilder();
-
+            var dt_star = new DateTime(1970, 1, 1);
             string[] cm = { "[", "]" };
             string[] cl = { "{", "}" };
-            string[] sp = { ",", ":", "\"{0}\"" };
+            string[] sp = { ",", ":", "\"{0}\"", "new Date({0})" };
 
             sb.Append(cm[0]);
             var vtype = new Type[] { typeof(int), typeof(float), typeof(decimal) };
@@ -29,6 +29,14 @@ namespace HY.Frame.Core
                     if (vtype.Contains(v.GetType()))
                     {
                         sb.Append(v);
+                    }
+                    else if (v is DBNull)
+                    {
+                        sb.Append("null");
+                    }
+                    else if (v is DateTime)
+                    {
+                        sb.AppendFormat(sp[3], Convert.ToInt64(((DateTime)v - dt_star).TotalMilliseconds));
                     }
                     else
                     {

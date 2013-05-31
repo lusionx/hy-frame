@@ -17,13 +17,22 @@ namespace HY.Frame.Bis
             return test2("222", "dddd");
         }
 
+        public ResResult ResResult()
+        {
+            return new ResResult { error = false, data = "wwww", msg = "msg" };
+        }
+
+
+        [WebApi]
         public string test2(string name, string age)
         {
             DataTable dt = new DataTable();
-            dt.Columns.Add("aa");
-            dt.Columns.Add(new DataColumn("ii", typeof(int)));
-            dt.Rows.Add("a1", 11);
-            dt.Rows.Add("a2", 12);
+            dt.Columns.Add("aa", typeof(string));
+            dt.Columns.Add("ii", typeof(int));
+            dt.Columns.Add("dec", typeof(decimal));
+            dt.Columns.Add("dt", typeof(DateTime));
+            dt.Rows.Add("a1", 11, 11.3, DateTime.Now);
+            dt.Rows.Add("a2", 12, 12.12, DateTime.Now);
             return dt.ToJson();
         }
 

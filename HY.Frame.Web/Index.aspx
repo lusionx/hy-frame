@@ -126,4 +126,9 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="foot" runat="server">
     <script src="/Scripts/JayDataContext.js"></script>
     <script src="/Core/index.js"></script>
+    <script>
+
+        RECLS = 'HY.Frame.Bis.BisAXXXX';
+
+    </script>
 </asp:Content>

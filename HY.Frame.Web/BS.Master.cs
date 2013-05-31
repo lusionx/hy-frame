@@ -11,7 +11,11 @@ namespace HY.Frame.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
 
+            System.Web.Security.FormsAuthentication.SetAuthCookie("lxing guid", true);
+
+            //HttpContext.Current.User.Identity.Name
         }
     }
 }

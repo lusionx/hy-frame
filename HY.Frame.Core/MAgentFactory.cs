@@ -142,6 +142,10 @@ namespace HY.Frame.Core
             {
                 Response.Write(js((result as ResResult)));
             }
+            else if (result is string)
+            {
+                Response.Write(result as string);
+            }
             else
             {
                 var ijson = Registration.FindIJSON(result);
