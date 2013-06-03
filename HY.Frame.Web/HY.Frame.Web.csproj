@@ -93,7 +93,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Auth.xml" />
+    <Content Include="App_Data\Auth.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="App_Data\log4net.xml" />
     <Content Include="App_Data\Msg.xml">
       <SubType>Designer</SubType>

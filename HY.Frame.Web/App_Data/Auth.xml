@@ -2,11 +2,26 @@
 
 <root>
   <roles>
-    <add name="" desc=""/>
+    <add name="admin" desc=""/>
+    <add name="sys" desc=""/>
+    <add name="user" desc=""/>
   </roles>
   <node url="" title=""  desc="根菜单,不会用来显示">
-    <node url="" title=""  desc="" roles="" />
-    <node url="" title=""  desc="" roles="" />
+    <![CDATA[只有最末的节点的roles才有效, 有子节点的node.roles由子节点计算得来]]>
+    <node url="/a" title=""  desc="" roles="">
+      <node url="/a/b" title=""  desc="" roles="admin,user" />
+      <node url="/a/b2" title=""  desc="" roles="user" />
+    </node>
+    <node url="/s" title=""  desc="" roles="sys"/>
+    <node url="/d" title=""  desc="" roles="">
+      <node url="/d/a" title=""  desc="" roles="">
+        <node url="/d/a/1" title=""  desc="" roles="sys"/>
+        <node url="/d/a/2" title=""  desc="" roles="user"/>
+      </node>
+      <node url="/d/b" title=""  desc="" roles="">
+        <node url="/d/b/2" title=""  desc="" roles="sys"/>
+      </node>
+    </node>
   </node>
 
   <mods des="所有权限:页,页中的行为">
