@@ -173,6 +173,7 @@
     <Content Include="Scripts\json2.min.js" />
     <Content Include="Shared\Nav.ascx" />
     <Content Include="View\JaySample.aspx" />
+    <Content Include="View\NavConfig.aspx" />
     <Content Include="View\pager.aspx" />
     <Content Include="View\Sample.aspx" />
     <Content Include="View\scroll.aspx" />
@@ -202,6 +203,13 @@
     </Compile>
     <Compile Include="Shared\Nav.ascx.designer.cs">
       <DependentUpon>Nav.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="View\NavConfig.aspx.cs">
+      <DependentUpon>NavConfig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\NavConfig.aspx.designer.cs">
+      <DependentUpon>NavConfig.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

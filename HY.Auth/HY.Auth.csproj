@@ -33,6 +33,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,6 +43,7 @@
   <ItemGroup>
     <Compile Include="AuthedUser.cs" />
     <Compile Include="LinkNode.cs" />
+    <Compile Include="NavConfigControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -49,6 +51,9 @@
       <Project>{04cd4d75-ca99-4c7d-a5b8-d9c88a4c3574}</Project>
       <Name>HY.Frame.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ClientControl.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -35,6 +35,12 @@ namespace HY.Auth
             Roles = FixRoleString(role);
         }
 
+        public AuthedUser( )
+        {
+            Roles = new List<string>();
+        }
+
+
         public List<LinkNode> GetNodes()
         {
             var node = InitTree(Root.Element("node"));
@@ -76,7 +82,7 @@ namespace HY.Auth
         /// </summary>
         /// <param name="rootNode"></param>
         /// <returns></returns>
-        protected LinkNode InitTree(XElement rootNode)
+        internal LinkNode InitTree(XElement rootNode)
         {
             var node = new LinkNode
             {

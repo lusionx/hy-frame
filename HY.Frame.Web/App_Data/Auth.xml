@@ -21,14 +21,14 @@
       <node url="/View/validate.aspx" title="验证" desc="" roles="sys"/>
       <node url="" title="" desc="divider" roles=""/>
       <node url="#" title="More options" desc="" roles="">
-        <node url="/View/simulator.aspx" title="重铸" desc="" roles="sys"/>
+        <node url="/View/simulator.aspx" title="重铸" desc="" roles="sys,admin"/>
         <node url="/View/simulator.aspx" title="分页" desc="" roles="sys"/>
         <node url="/View/simulator.aspx" title="滚动" desc="" roles="sys"/>
         <node url="/View/simulator.aspx" title="验证" desc="" roles="sys"/>
       </node>
     </node>
 
-    <node url="#" title="LINk4" desc="" roles=""/>
+    <node url="/View/NavConfig.aspx" title="Nav编辑" desc="" roles="user"/>
   </node>
 
   <mods des="所有权限:页,页中的行为">
