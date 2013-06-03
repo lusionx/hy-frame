@@ -11,8 +11,8 @@ using System.Linq;
 using System.ServiceModel.Web;
 using System.Web;
 
-namespace HY.Frame.Web
-{    
+namespace HY.Frame.Web.Api
+{
     public class DS : DataService<HY.Frame.Bis.DBEntities>
     {
         // This method is called only once to initialize service-wide policies.
