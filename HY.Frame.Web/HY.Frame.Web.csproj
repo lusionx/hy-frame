@@ -45,35 +45,28 @@
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Data.Edm, Version=5.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.Data.Edm, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.Data.Edm.5.4.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Data.Edm.5.5.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Data.OData, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.Data.OData.5.0.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Data.Services, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.Data.Services.5.0.0\lib\net40\Microsoft.Data.Services.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Data.Services.Client, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.Data.Services.Client.5.0.0\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.Data.OData, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.5.0.5\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Data.OData.5.5.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Data.Services.5.5.0\lib\net40\Microsoft.Data.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.5.0\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.Entity" />
-    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
-    </Reference>
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Web" />
-    <Reference Include="System.Spatial, Version=5.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Spatial, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\System.Spatial.5.4.0\lib\net40\System.Spatial.dll</HintPath>
+      <HintPath>..\packages\System.Spatial.5.5.0\lib\net40\System.Spatial.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -93,6 +86,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Api\DS.svc" />
     <Content Include="App_Data\Auth.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -100,51 +94,41 @@
     <Content Include="App_Data\Msg.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="bootstrap\css\bootstrap-responsive.css" />
-    <Content Include="bootstrap\css\bootstrap-responsive.min.css" />
-    <Content Include="bootstrap\css\bootstrap.css" />
-    <Content Include="bootstrap\css\bootstrap.min.css" />
-    <Content Include="bootstrap\img\glyphicons-halflings-white.png" />
-    <Content Include="bootstrap\img\glyphicons-halflings.png" />
-    <Content Include="bootstrap\js\bootstrap.js" />
-    <Content Include="bootstrap\js\bootstrap.min.js" />
+    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap-responsive.min.css" />
     <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.ext.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
-    <Content Include="Core\BS.js" />
-    <Content Include="Core\index.js" />
-    <Content Include="Content\favicon.ico" />
-    <Content Include="Core\jquery.form.js" />
-    <Content Include="DS.svc" />
-    <Content Include="Index.aspx" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\datajs-1.1.0.js" />
-    <Content Include="Scripts\datajs-1.1.0.min.js" />
-    <Content Include="BS.Master" />
-    <Content Include="Core\BS.pager.js" />
-    <Content Include="Content\bootstrap.ext.css" />
-    <Content Include="Core\jquery.validate.ext.js" />
-    <Content Include="Api\Log.ashx" />
-    <Content Include="Api\SQL.ashx" />
+    <Content Include="Scripts\datajs-1.0.3.js" />
+    <Content Include="Scripts\datajs-1.0.3.min.js" />
     <None Include="Scripts\jaydata-vsdoc.js" />
     <Content Include="Scripts\jaydata.d.ts" />
     <Content Include="Scripts\jaydata.js" />
     <Content Include="Scripts\jaydata.min.js" />
-    <Content Include="Scripts\JayDataContext.js" />
     <Content Include="Scripts\jaydatamodules\deferred.js" />
+    <Content Include="Scripts\jaydatamodules\deferred.min.js" />
     <Content Include="Scripts\jaydatamodules\errorhandler.js" />
+    <Content Include="Scripts\jaydatamodules\errorhandler.min.js" />
     <Content Include="Scripts\jaydatamodules\formBinder.js" />
+    <Content Include="Scripts\jaydatamodules\formBinder.min.js" />
     <Content Include="Scripts\jaydatamodules\handlebars.js" />
     <Content Include="Scripts\jaydatamodules\inMemory.js" />
+    <Content Include="Scripts\jaydatamodules\inMemory.min.js" />
+    <Content Include="Scripts\jaydatamodules\kendo.js" />
+    <Content Include="Scripts\jaydatamodules\kendo.min.js" />
     <Content Include="Scripts\jaydatamodules\knockout.js" />
+    <Content Include="Scripts\jaydatamodules\knockout.min.js" />
     <Content Include="Scripts\jaydatamodules\qDeferred.js" />
+    <Content Include="Scripts\jaydatamodules\qDeferred.min.js" />
     <Content Include="Scripts\jaydatamodules\sencha.js" />
+    <Content Include="Scripts\jaydatamodules\sencha.min.js" />
     <Content Include="Scripts\jaydatamodules\template.js" />
+    <Content Include="Scripts\jaydatamodules\template.min.js" />
     <Content Include="Scripts\jaydatamodules\validate.js" />
+    <Content Include="Scripts\jaydatamodules\validate.min.js" />
     <Content Include="Scripts\jaydataproviders\FacebookProvider.js" />
     <Content Include="Scripts\jaydataproviders\FacebookProvider.min.js" />
     <Content Include="Scripts\jaydataproviders\IndexedDbProvider.js" />
@@ -161,10 +145,21 @@
     <Content Include="Scripts\jaydataproviders\StormProvider.min.js" />
     <Content Include="Scripts\jaydataproviders\YQLProvider.js" />
     <Content Include="Scripts\jaydataproviders\YQLProvider.min.js" />
-    <None Include="Scripts\jquery-2.0.0.intellisense.js" />
-    <Content Include="Scripts\jquery-2.0.0.js" />
-    <Content Include="Scripts\jquery-2.0.0.min.js" />
-    <Content Include="Scripts\jquery-2.0.0.min.map" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Core\BS.js" />
+    <Content Include="Core\index.js" />
+    <Content Include="Content\favicon.ico" />
+    <Content Include="Core\jquery.form.js" />
+    <Content Include="Index.aspx" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="BS.Master" />
+    <Content Include="Core\BS.pager.js" />
+    <Content Include="Core\jquery.validate.ext.js" />
+    <Content Include="Api\Log.ashx" />
+    <Content Include="Api\SQL.ashx" />
+    <Content Include="Scripts\JayDataContext.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.messages_zh.js" />
@@ -179,17 +174,19 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Templates\first.template" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\DS.svc.cs">
+      <DependentUpon>DS.svc</DependentUpon>
+    </Compile>
     <Compile Include="BS.Master.cs">
       <DependentUpon>BS.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="BS.Master.designer.cs">
       <DependentUpon>BS.Master</DependentUpon>
-    </Compile>
-    <Compile Include="DS.svc.cs">
-      <DependentUpon>DS.svc</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
