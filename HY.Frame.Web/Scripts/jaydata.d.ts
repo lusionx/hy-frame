@@ -83,9 +83,11 @@ module $data {
     }
 
     class EntityContext implements Object {
-        constructor (config: { name: string; oDataServiceHost: string; });
+        constructor (config: any);
+        constructor (config: { name: string; oDataServiceHost: string; MaxDataServiceVersion: string; });
         constructor (config: { name: string; oDataServiceHost?: string; databaseName?: string; localStoreName?: string; user?: string; password?: string; });
 
+        onReady(): $data.IPromise;
         onReady(handler: (context: EntityContext) => void): $data.IPromise;
         saveChanges(): $data.IPromise;
         saveChanges(handler: (result: number) => void ): $data.IPromise;
@@ -106,11 +108,95 @@ module $data {
         value: string;
     };
 
-    export class Geography implements Object {
+
+    export class SimpleBase implements Object {
+        constructor (initData: any);
+    };
+    export class Geospatial extends SimpleBase { 
+        constructor (initData: any);
+        type: String;
+    };
+    export class Geography extends Geospatial { 
+        constructor (initData: any);
+    };
+
+    export class GeographyPoint extends Geography {
+        constructor (initData: any);
+        constructor (coordinates: Array);
         constructor (longitude: number, latitude: number);
         longitude: number;
         latitude: number;
+        coordinates: Array;
     };
+    export class GeographyLineString extends Geography {
+        constructor (initData: any);
+        constructor (coordinates: Array);
+        coordinates: Array;
+    };
+    export class GeographyPolygon extends Geography {
+        constructor (initData: any);
+        constructor (coordinates: Array);
+        coordinates: Array;
+    };
+    export class GeographyMultiPoint extends Geography { 
+        constructor (initData: any);
+        constructor (coordinates: Array);
+        coordinates: Array;
+    }
+    export class GeographyMultiLineString extends Geography { 
+        constructor (initData: any);
+        constructor (coordinates: Array);
+        coordinates: Array;
+    }
+    export class GeographyMultiPolygon extends Geography { 
+        constructor (initData: any);
+        constructor (coordinates: Array);
+        coordinates: Array;
+    }
+    export class GeographyCollection extends Geography { 
+        constructor (initData: any);
+    }
+
+    export class Geometry extends Geospatial { 
+        constructor (initData: any);
+    };
+
+    export class GeometryPoint extends Geometry {
+        constructor (initData: any);
+        constructor (coordinates: Array);
+        constructor (x: number, y: number);
+        x: number;
+        y: number;
+        coordinates: Array;
+    };
+    export class GeometryLineString extends Geometry {
+        constructor (initData: any);
+        constructor (coordinates: Array);
+        coordinates: Array;
+    };
+    export class GeometryPolygon extends Geometry {
+        constructor (initData: any);
+        constructor (coordinates: Array);
+        coordinates: Array;
+    };
+    export class GeometryMultiPoint extends Geometry { 
+        constructor (initData: any);
+        constructor (coordinates: Array);
+        coordinates: Array;
+    }
+    export class GeometryMultiLineString extends Geometry { 
+        constructor (initData: any);
+        constructor (coordinates: Array);
+        coordinates: Array;
+    }
+    export class GeometryMultiPolygon extends Geometry { 
+        constructor (initData: any);
+        constructor (coordinates: Array);
+        coordinates: Array;
+    }
+    export class GeometryCollection extends Geography { 
+        constructor (initData: any);
+    }
 
 };
 
@@ -129,10 +215,6 @@ interface String {
     endsWith(s: string): bool;
     strLength(): number;
     indexOf(s: string): number;
-    replace(o: string, n: string): string;
-    toLowerCase(): string;
-    toUpperCase(): string;
-    trim(): string;
     concat(s: string): string;
 }
 

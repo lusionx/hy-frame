@@ -1,4 +1,17 @@
-ï»¿(function ($data, Handlebars) {
+// JayData 1.3.0
+// Dual licensed under MIT and GPL v2
+// Copyright JayStack Technologies (http://jaydata.org/licensing)
+//
+// JayData is a standards-based, cross-platform Javascript library and a set of
+// practices to access and manipulate data from various online and offline sources.
+//
+// Credits:
+//     Hajnalka Battancs, Dániel József, János Roden, László Horváth, Péter Nochta
+//     Péter Zentai, Róbert Bónay, Szabolcs Czinege, Viktor Borza, Viktor Lázár,
+//     Zoltán Gyebrovszki, Gábor Dolla
+//
+// More info: http://jaydata.org
+(function ($data, Handlebars) {
     var oldProcessor = $data.Entity.inheritedTypeProcessor;
     var templateCache = {};
 
@@ -254,7 +267,7 @@
                     var field = {
                         name: md.name,
                         metadata: md,
-                        get value() { return self[name]; },
+                        get value() { return self[name]; }
                     }
                     results.push(field);
                 }
