@@ -5,13 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace HY.Frame.Web
+namespace HY.Frame.Web.Shared
 {
-    public partial class BS : System.Web.UI.MasterPage
+    public partial class Nav : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            System.Web.Security.FormsAuthentication.SetAuthCookie("lxing guid", true);
+
         }
     }
 }

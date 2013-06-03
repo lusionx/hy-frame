@@ -12,5 +12,6 @@ namespace HY.Auth
         public List<LinkNode> Children { get; set; }
         public bool Enabled { get; set; }
         public List<string> Roles { get; set; }
+        public string Desc { get; set; }
     }
 }

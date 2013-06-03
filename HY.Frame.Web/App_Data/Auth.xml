@@ -6,22 +6,29 @@
     <add name="sys" desc=""/>
     <add name="user" desc=""/>
   </roles>
-  <node url="" title=""  desc="根菜单,不会用来显示">
-    <![CDATA[只有最末的节点的roles才有效, 有子节点的node.roles由子节点计算得来]]>
-    <node url="/a" title=""  desc="" roles="">
-      <node url="/a/b" title=""  desc="" roles="admin,user" />
-      <node url="/a/b2" title=""  desc="" roles="user" />
-    </node>
-    <node url="/s" title=""  desc="" roles="sys"/>
-    <node url="/d" title=""  desc="" roles="">
-      <node url="/d/a" title=""  desc="" roles="">
-        <node url="/d/a/1" title=""  desc="" roles="sys"/>
-        <node url="/d/a/2" title=""  desc="" roles="user"/>
+  <node url="" title="" desc="根菜单,不会用来显示" roles="">
+    <![CDATA[只有最末的节点的roles才有效, 父节点的node.roles由子节点计算得来]]>
+    <node url="/" title="Home" desc="" roles=""/>
+    <node url="#" title="" desc="divider-vertical" roles=""/>
+    
+    <node url="/View/JaySample.aspx" title="Jay" desc="" roles=""/>
+    <node url="/View/Query.aspx" title="Query" desc="" roles=""/>
+
+    <node url="#" title="工具" desc="" roles="">
+      <node url="/View/simulator.aspx" title="重铸" desc="" roles="sys"/>
+      <node url="/View/pager.aspx" title="分页" desc="" roles="sys"/>
+      <node url="/View/scroll.aspx" title="滚动" desc="" roles="sys"/>
+      <node url="/View/validate.aspx" title="验证" desc="" roles="sys"/>
+      <node url="" title="" desc="divider" roles=""/>
+      <node url="#" title="More options" desc="" roles="">
+        <node url="/View/simulator.aspx" title="重铸" desc="" roles="sys"/>
+        <node url="/View/simulator.aspx" title="分页" desc="" roles="sys"/>
+        <node url="/View/simulator.aspx" title="滚动" desc="" roles="sys"/>
+        <node url="/View/simulator.aspx" title="验证" desc="" roles="sys"/>
       </node>
-      <node url="/d/b" title=""  desc="" roles="">
-        <node url="/d/b/2" title=""  desc="" roles="sys"/>
-      </node>
     </node>
+
+    <node url="#" title="LINk4" desc="" roles=""/>
   </node>
 
   <mods des="所有权限:页,页中的行为">

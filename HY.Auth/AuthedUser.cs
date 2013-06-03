@@ -66,7 +66,7 @@ namespace HY.Auth
             }
             else// 我是最末节点
             {
-                ln.Enabled = ln.Roles.Any(a => Roles.Contains(a));
+                ln.Enabled = ln.Roles.Count == 0 || ln.Roles.Any(a => Roles.Contains(a));
             }
         }
 
@@ -82,7 +82,8 @@ namespace HY.Auth
             {
                 Url = rootNode.Attribute("url").Value,
                 Enabled = true,
-                Title = rootNode.Attribute("url").Value,
+                Title = rootNode.Attribute("title").Value,
+                Desc = rootNode.Attribute("desc").Value,
                 Children = new List<LinkNode>(),
                 Roles = FixRoleString(rootNode.Attribute("roles").Value)
             };
