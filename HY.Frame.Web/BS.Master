@@ -5,7 +5,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="shortcut icon" href="/Content/favicon.ico">
-    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet" /> 
+    <link href="/Content/bootstrap.css" rel="stylesheet" /> 
     <link href="/Content/bootstrap.ext.css" rel="stylesheet" />
     <style>
         body {
@@ -76,8 +76,8 @@
             <p>&copy;  Company 2012</p>
         </footer>
     </div>
-    <script src="/Scripts/jquery-1.8.3.js"></script>
-    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/Scripts/jquery-1.10.0.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
     <script src="/scripts/datajs-1.1.0.min.js"></script>
     <script src="/Scripts/jaydata.min.js"></script>
     <script src="/scripts/jaydataproviders/oDataProvider.min.js"></script>

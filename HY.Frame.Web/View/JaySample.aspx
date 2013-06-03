@@ -37,9 +37,9 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="foot" runat="server">
-    <script src="/Scripts/JayDataContext.js"></script>
+    <script src="/Core/JayDataContext.js"></script>
     <script>
-        var db = HY.Frame.Bis.context;
+        var db = new HY.Frame.Bis.DBEntities({ name: 'oData', oDataServiceHost: 'http://localhost:27204/api/DS.svc' });
         var now = null;
         $(function () {
             var q = db.com_person;
@@ -69,7 +69,7 @@
                 $('#result tbody').html(html);
             });
 
-            $('a.op-edit').live('click', function () {
+            $('#result').on('click', 'a.op-edit', function () {
                 var me = $(this);
                 db.com_person.where(function (e) {
                     return e.com_person_id == this.key;
