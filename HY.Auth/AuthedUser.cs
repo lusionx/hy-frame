@@ -104,11 +104,29 @@ namespace HY.Auth
         }
 
 
+        public List<ModNode> GetAllMods()
+        {
+            var mod = Root.Element("mods");
+            var q = from a in mod.Elements("add")
+                    select new ModNode
+            {
+                Desc = a.Attribute("desc").Value,
+                Enabled = true,
+                Action = a.Attribute("action").Value,
+                Roles = FixRoleString(a.Attribute("roles").Value),
+                Title = a.Attribute("title").Value,
+                Url = a.Attribute("url").Value
+
+            };
+
+            return q.ToList();
+        }
+
         /// <summary>
-        /// 更新xml
+        /// 更新xml.node节点
         /// </summary>
         /// <param name="json">[LinkNode]的json格式</param>
-        public void Update(string json)
+        public void UpdateNodes(string json)
         {
             var jss = new System.Web.Script.Serialization.JavaScriptSerializer();
             var ls = new List<LinkNode>();

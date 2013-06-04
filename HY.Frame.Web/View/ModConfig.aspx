@@ -6,7 +6,7 @@
     
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="main" runat="server">
-    <uc:NavConfigControl runat="server" CssClass="navcfg" />
+    <uc:ModConfigControl runat="server" CssClass="modcfg" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="foot" runat="server">
     <script>

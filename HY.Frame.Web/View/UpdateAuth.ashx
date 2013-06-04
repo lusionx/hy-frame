@@ -17,7 +17,7 @@ namespace HY.Frame.Web.View
 
         public void ProcessRequest(HttpContext context)
         {
-            new Auth.AuthedUser().Update(context.Request["data"]);
+            new Auth.AuthedUser().UpdateNodes(context.Request["data"]);
             context.Response.Write(1);
         }
 

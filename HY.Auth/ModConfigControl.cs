@@ -9,11 +9,7 @@ using HY.Frame.Core;
 
 namespace HY.Auth
 {
-    /// <summary>
-    /// 通过 $('#' + NavConfig.id).data(NavConfig.key)方法取得json数据, 
-    /// 然后把json数据 交给AuthedUser.UpdateNodes方法 修改xml
-    /// </summary>
-    public class NavConfigControl : WebControl
+    public class ModConfigControl : WebControl
     {
         protected override void Render(HtmlTextWriter writer)
         {
@@ -25,7 +21,7 @@ namespace HY.Auth
             writer.WriteEndTag("div");
             var cs = Page.ClientScript;
             writer.WriteBeginTag("script");
-            writer.WriteAttribute("src", cs.GetWebResourceUrl(this.GetType(), "HY.Auth.NavConfigControl.js"));
+            writer.WriteAttribute("src", cs.GetWebResourceUrl(this.GetType(), "HY.Auth.ModConfigControl.js"));
             writer.Write(">");
             writer.WriteEndTag("script");
 
@@ -35,27 +31,26 @@ namespace HY.Auth
             var cfg = new
             {
                 id = this.ClientID,
-                key = "authcfg"
+                key = "modcfg"
             };
 
-            writer.Write("NavConfig=");
+            writer.Write("ModConfig=");
             writer.Write(ObjectExtensions.ToJson(cfg));
             writer.Write(";");
             writer.WriteEndTag("script");
 
         }
 
-        protected const int MAX_DEEP = 3;
+
 
         protected void RenderTable(HtmlTextWriter writer)
         {
             var u = new AuthedUser();
-            var linknode = u.InitTree(u.Root.Element("node"));
+            var mods = u.Root.Element("mods").Elements().ToList();
             writer.WriteBeginTag("table");
             writer.WriteAttribute("class", "table table-condensed table-hover table-bordered table-striped");
             writer.Write(">");
 
-            var lv = MAX_DEEP;
             var roles = u.Root.Element("roles").Elements("add").Select(a => a.Attribute("name").Value).ToList();
 
             XElement txelm = null;
@@ -63,50 +58,36 @@ namespace HY.Auth
             txelm = new XElement("thead", new XElement("tr"));
             txelm = txelm.FirstNode as XElement;
 
-            txelm.Add(new XElement("th", new XAttribute("colspan", MAX_DEEP)));
+            txelm.Add(new XElement("th", new XAttribute("colspan", "2")));
 
             roles.ForEach(a => txelm.Add(new XElement("th", a)));
             writer.Write(txelm.Parent.ToString());
 
             //tbody
-            txelm = new XElement("tbody");
+            txelm = new XElement("thead");
+            txelm.Add(RenderTbody(u.GetAllMods(), roles));
 
-            linknode.Children.ForEach(a =>
-            {
-                txelm.Add(RenderTbody(0, a, roles));
-            });
 
             writer.Write(txelm.ToString());
 
             writer.WriteEndTag("table");
         }
 
-        protected List<XElement> RenderTbody(int deep, LinkNode node, List<string> roles)
+        protected List<XElement> RenderTbody(List<ModNode> nodes, List<string> roles)
         {
-            if (string.IsNullOrEmpty(node.Title))
+            var trs = new List<XElement>();
+
+            nodes.ForEach(node =>
             {
-                return new List<XElement>();
-            }
 
-            var tr = new XElement("tr");
+                var tr = new XElement("tr");
+                tr.Add(new XElement("td", new XAttribute("title", node.Url), node.Title));
 
-            for (int i = 0; i < MAX_DEEP; i++)
-            {
-                if (i != deep)
+                tr.Add(new XElement("td", node.Action));
+
+                roles.ForEach(a =>
                 {
-                    tr.Add(new XElement("td"));
-                }
-                else
-                {
-                    tr.Add(new XElement("td", new XAttribute("title", node.Url), node.Title));
-                }
-            }
 
-
-            roles.ForEach(a =>
-            {
-                if (node.Children.Count == 0)
-                {
                     if (node.Roles.Contains(a))
                     {
                         tr.Add(new XElement("td",
@@ -119,23 +100,14 @@ namespace HY.Auth
                             new XElement("Label", new XAttribute("title", a),
                                 new XElement("input", new XAttribute("type", "checkbox")))));
                     }
-                }
-                else
-                {
-                    tr.Add(new XElement("td"));
-                }
+
+                });
+                trs.Add(tr);
             });
 
-            var trs = new List<XElement>();
-            trs.Add(tr);
 
-            node.Children.ForEach(a =>
-                {
-                    trs.AddRange(RenderTbody(deep + 1, a, roles));
-                });
 
             return trs;
         }
-
     }
 }

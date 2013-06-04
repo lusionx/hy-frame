@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="AuthedUser.cs" />
     <Compile Include="LinkNode.cs" />
+    <Compile Include="ModConfigControl.cs" />
+    <Compile Include="ModNode.cs" />
     <Compile Include="NavConfigControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -53,7 +55,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ClientControl.js" />
+    <EmbeddedResource Include="NavConfigControl.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ModConfigControl.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

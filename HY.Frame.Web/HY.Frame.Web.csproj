@@ -173,6 +173,7 @@
     <Content Include="Scripts\json2.min.js" />
     <Content Include="Shared\Nav.ascx" />
     <Content Include="View\JaySample.aspx" />
+    <Content Include="View\ModConfig.aspx" />
     <Content Include="View\NavConfig.aspx" />
     <Content Include="View\pager.aspx" />
     <Content Include="View\Sample.aspx" />
