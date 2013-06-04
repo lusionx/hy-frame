@@ -5,7 +5,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="main" runat="server">
-    <uc:NavConfigControl runat="server" CssClass="navcfg" ID="NavConfigControl1" />
+    <uc:NavConfigControl runat="server" CssClass="navcfg" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="foot" runat="server">
+    <script>
+        $(function () {
+            $('body').on('dblclick', function () {
+                // test
+                alert($('#' + NavConfig.id).data(NavConfig.key));
+            });
+        });
+    </script>
 </asp:Content>

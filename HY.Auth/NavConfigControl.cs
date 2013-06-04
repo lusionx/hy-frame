@@ -5,6 +5,7 @@ using System.Text;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml.Linq;
+using HY.Frame.Core;
 
 namespace HY.Auth
 {
@@ -23,6 +24,21 @@ namespace HY.Auth
             writer.WriteAttribute("src", cs.GetWebResourceUrl(this.GetType(), "HY.Auth.ClientControl.js"));
             writer.Write(">");
             writer.WriteEndTag("script");
+
+            //配置信息
+            writer.WriteBeginTag("script");
+            writer.Write(">");
+            var cfg = new
+            {
+                id = this.ClientID,
+                key = "authcfg"
+            };
+
+            writer.Write("NavConfig=");
+            writer.Write(ObjectExtensions.ToJson(cfg));
+            writer.Write(";");
+            writer.WriteEndTag("script");
+
         }
 
         protected const int MAX_DEEP = 3;
