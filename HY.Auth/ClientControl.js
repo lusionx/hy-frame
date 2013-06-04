@@ -14,8 +14,8 @@
                         }).get();
 
                         return {
-                            Url: td.text(),
-                            Title: td.attr('title'),
+                            Url: td.attr('title'),
+                            Title: td.text(),
                             Roles: roles
                         };
 

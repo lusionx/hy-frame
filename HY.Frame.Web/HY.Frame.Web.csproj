@@ -184,6 +184,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Templates\first.template" />
+    <Content Include="View\UpdateAuth.ashx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\DS.svc.cs">
@@ -203,13 +204,6 @@
     </Compile>
     <Compile Include="Shared\Nav.ascx.designer.cs">
       <DependentUpon>Nav.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="View\NavConfig.aspx.cs">
-      <DependentUpon>NavConfig.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="View\NavConfig.aspx.designer.cs">
-      <DependentUpon>NavConfig.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

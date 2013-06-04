@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BS.Master" AutoEventWireup="true" CodeBehind="NavConfig.aspx.cs" Inherits="HY.Frame.Web.View.NavConfig" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BS.Master" %>
 
 <%@ Register Assembly="HY.Auth" TagPrefix="uc" Namespace="HY.Auth" %>
 
@@ -12,7 +12,12 @@
         $(function () {
             $('body').on('dblclick', function () {
                 // test
-                alert($('#' + NavConfig.id).data(NavConfig.key));
+                var RECLS = './UpdateAuth.ashx';
+                var vv = $('#' + NavConfig.id).data(NavConfig.key);
+
+                $.post(RECLS, { data: vv }, function (obj) {
+
+                }, 'json');
             });
         });
     </script>

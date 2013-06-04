@@ -22,7 +22,6 @@ namespace HY.Frame.Bis
             return new ResResult { error = false, data = "wwww", msg = "msg" };
         }
 
-
         [WebApi]
         public string test2(string name, string age)
         {

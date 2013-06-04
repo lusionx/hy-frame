@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
+using HY.Frame.Core;
 
 namespace HY.Auth
 {
@@ -35,7 +36,7 @@ namespace HY.Auth
             Roles = FixRoleString(role);
         }
 
-        public AuthedUser( )
+        public AuthedUser()
         {
             Roles = new List<string>();
         }
@@ -100,6 +101,38 @@ namespace HY.Auth
                 });
 
             return node;
+        }
+
+
+        /// <summary>
+        /// 更新xml
+        /// </summary>
+        /// <param name="json">[LinkNode]的json格式</param>
+        public void Update(string json)
+        {
+            var jss = new System.Web.Script.Serialization.JavaScriptSerializer();
+            var ls = new List<LinkNode>();
+            try
+            {
+                ls = jss.Deserialize(json, ls.GetType()) as List<LinkNode>;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            var node = Root.Element("node");
+
+            foreach (var item in node.Descendants("node"))
+            {
+                var match = ls.FirstOrDefault(a => a.Title == item.Attribute("title").Value && a.Url == item.Attribute("url").Value);
+                if (match != null)
+                {
+                    item.Attribute("roles").Value = match.Roles.Join(",");
+                }
+            }
+
+            node.Document.Save(ConfigFilePath, SaveOptions.None);
         }
     }
 }
