@@ -6,6 +6,7 @@ using System.Web;
 using System.Reflection;
 using System.Reflection.Emit;
 using System.Linq.Expressions;
+using System.IO;
 
 namespace HY.Frame.Core
 {
@@ -146,10 +147,13 @@ namespace HY.Frame.Core
             {
                 Response.Write(result as string);
             }
+            else if (result is Stream)
+            {
+                (result as Stream).CopyTo(Response.OutputStream);
+            }
             else
             {
                 var ijson = Registration.FindIJSON(result);
-
                 Response.Write(ijson.ToJSON(result));
             }
         }
