@@ -9,6 +9,10 @@ using HY.Frame.Core;
 
 namespace HY.Auth
 {
+    /// <summary>
+    /// 通过 $('#' + ModConfig.id).data(ModConfig.key)方法取得json数据, 
+    /// 然后把json数据 交给AuthedUser.UpdateMods方法 修改xml
+    /// </summary>
     public class ModConfigControl : WebControl
     {
         protected override void Render(HtmlTextWriter writer)
