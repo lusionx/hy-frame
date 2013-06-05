@@ -16,7 +16,7 @@
                 var RECLS = './UpdateAuth.ashx';
                 var vv = $('#' + NavConfig.id).data(NavConfig.key);
 
-                $.post(RECLS, { data: vv }, function (obj) {
+                $.post(RECLS, { nav: vv }, function (obj) {
 
                 }, 'json');
             });

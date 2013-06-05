@@ -122,6 +122,41 @@ namespace HY.Auth
             return q.ToList();
         }
 
+
+        /// <summary>
+        /// 更新xml.mods节点
+        /// </summary>
+        /// <param name="json">[ModNode]的json格式</param>
+        public void UpdateMods(string json)
+        {
+            var jss = new System.Web.Script.Serialization.JavaScriptSerializer();
+            var ls = new List<ModNode>();
+            try
+            {
+                ls = jss.Deserialize(json, ls.GetType()) as List<ModNode>;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            var mod = Root.Element("mods");
+
+            foreach (var item in mod.Elements("add"))
+            {
+                var match = ls.FirstOrDefault(a => a.Title == item.Attribute("title").Value 
+                    && a.Url == item.Attribute("url").Value
+                    && a.Action == item.Attribute("action").Value);
+                if (match != null)
+                {
+                    item.Attribute("roles").Value = match.Roles.Join(",");
+                }
+            }
+
+            mod.Document.Save(ConfigFilePath, SaveOptions.None);
+
+        }
+
         /// <summary>
         /// 更新xml.node节点
         /// </summary>

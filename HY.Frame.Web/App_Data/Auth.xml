@@ -31,8 +31,8 @@
   </node>
   <mods des="所有权限:页,页中的行为">
     <add title="mod1" url="/a" action="" roles="admin" desc="" />
-    <add title="mod1" url="/a" action="编辑" roles="" desc="" />
-    <add title="mod1" url="/a" action="删除" roles="" desc="" />
+    <add title="mod1" url="/a" action="编辑" roles="admin" desc="" />
+    <add title="mod1" url="/a" action="删除" roles="admin" desc="" />
     <add title="mod2" url="/b" action="" roles="" desc="" />
     <add title="mod3" url="/c" action="" roles="" desc="" />
   </mods>

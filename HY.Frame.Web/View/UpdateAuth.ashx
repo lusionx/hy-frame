@@ -17,7 +17,15 @@ namespace HY.Frame.Web.View
 
         public void ProcessRequest(HttpContext context)
         {
-            new Auth.AuthedUser().UpdateNodes(context.Request["data"]);
+            var u = new Auth.AuthedUser();
+            if (!string.IsNullOrEmpty(context.Request["nav"]))
+            {
+                u.UpdateNodes(context.Request["nav"]);
+            }
+            if (!string.IsNullOrEmpty(context.Request["mod"]))
+            {
+                u.UpdateMods(context.Request["mod"]);
+            }
             context.Response.Write(1);
         }
 
