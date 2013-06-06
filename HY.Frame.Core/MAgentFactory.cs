@@ -150,7 +150,9 @@ namespace HY.Frame.Core
             }
             else if (result is Stream)
             {
+                //Response.AddHeader("Content-Type", "application/octet-stream");
                 //Response.OutputStream.Write( = result as Stream;
+                throw new NotImplementedException("不要用, 返回 stream 的方法 ");
                 Response.BinaryWrite(Deflate.StreamToBytes(result as Stream));
             }
             else
