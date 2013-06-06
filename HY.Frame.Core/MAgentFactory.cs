@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using System.Linq.Expressions;
 using System.IO;
+using HY.Frame.Core.Toolkit;
 
 namespace HY.Frame.Core
 {
@@ -149,7 +150,7 @@ namespace HY.Frame.Core
             }
             else if (result is Stream)
             {
-                (result as Stream).CopyTo(Response.OutputStream);
+                Response.BinaryWrite(Deflate.StreamToBytes(result as Stream));
             }
             else
             {

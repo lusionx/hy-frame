@@ -12,7 +12,8 @@ namespace HY.Frame.CMD
         static void Main()
         {
             //IRuner runer = new SvcSelect();
-            IRuner runer = new TemplateEG();
+            //IRuner runer = new TemplateEG();
+            IRuner runer = new DeflateTest();
             runer.Go();
         }
     }

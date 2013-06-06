@@ -59,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeflateTest.cs" />
     <Compile Include="IRunImpl\go3.cs" />
     <Compile Include="IRun.cs" />
     <Compile Include="IRunImpl\TemplateEG.cs" />
