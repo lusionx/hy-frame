@@ -150,6 +150,7 @@ namespace HY.Frame.Core
             }
             else if (result is Stream)
             {
+                //Response.OutputStream.Write( = result as Stream;
                 Response.BinaryWrite(Deflate.StreamToBytes(result as Stream));
             }
             else

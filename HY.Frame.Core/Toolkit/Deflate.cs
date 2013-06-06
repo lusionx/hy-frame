@@ -55,7 +55,7 @@ namespace HY.Frame.Core.Toolkit
             {
                 eam.ReadByte();
             }
-            using (var press = new DeflateStream(eam, CompressionMode.Decompress))
+            using (var press = new DeflateStream(eam, CompressionMode.Decompress, eam is MemoryStream))
             {
                 var outStream = new MemoryStream();
                 press.CopyTo(outStream);
