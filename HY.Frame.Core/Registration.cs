@@ -57,7 +57,7 @@ namespace HY.Frame.Core
             {
                 return _jsonMap[t];
             }
-            return null;
+            return new ObjectToJSON();
         }
 
         internal class ObjectToJSON : IJSON
