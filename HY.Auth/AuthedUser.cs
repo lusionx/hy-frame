@@ -69,7 +69,7 @@ namespace HY.Auth
 
         protected void RemoveNode(LinkNode ln)
         {
-            ln.Children = ln.Children.Where(a => a.Enabled && !string.IsNullOrEmpty(a.Title)).ToList();
+            ln.Children = ln.Children.Where(a => a.Enabled).ToList();
             if (ln.Children.Count > 0)
             {
                 ln.Children.ForEach(a =>
