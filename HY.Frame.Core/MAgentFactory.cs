@@ -114,7 +114,25 @@ namespace HY.Frame.Core
             object result = null;
             try
             {
+                var handlers = from a in methodInf.GetCustomAttributes(false)
+                               where a is ActionBeforeHandlerAttribute
+                               select (a as ActionBeforeHandlerAttribute).Handler;
+
+                foreach (var handler in handlers.ToList())
+                {
+                    (handler.Assembly.CreateInstance(handler.FullName) as IHttpHandler).ProcessRequest(context);
+                }
+
                 result = func(instance, parVs);
+
+                handlers = from a in methodInf.GetCustomAttributes(false)
+                           where a is ActionAfterHandlerAttribute
+                           select (a as ActionAfterHandlerAttribute).Handler;
+
+                foreach (var handler in handlers.ToList())
+                {
+                    (handler.Assembly.CreateInstance(handler.FullName) as IHttpHandler).ProcessRequest(context);
+                }
             }
             catch (Exception e)
             {
@@ -128,6 +146,7 @@ namespace HY.Frame.Core
 
             ResponseResult(result);
         }
+
 
         protected void ResponseResult(object result)
         {

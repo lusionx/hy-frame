@@ -22,7 +22,9 @@ HY.Frame.Core.Toolkit.*
 ### 路径映射
 /name/space/class/method.c
 
-method 要标记HY.Frame.Core.WebApiAttribute才能访问
+method 要标记HY.Frame.Core.WebApiAttribute 才能访问
+
+method 标记ActionBefore(After)HandlerAttribute 实现过滤器功能
 
 method 的方法可以使用简单类型的参数,参数值会尝试从form和query中寻找,并赋值(trim)
 
