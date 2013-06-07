@@ -70,6 +70,7 @@ namespace HY.Auth
         protected void RemoveNode(LinkNode ln)
         {
             ln.Children = ln.Children.Where(a => a.Enabled).ToList();
+
             if (ln.Children.Count > 0)
             {
                 ln.Children.ForEach(a =>
@@ -89,7 +90,7 @@ namespace HY.Auth
                     SetNodeEnable(a);
                 });
                 //通过子节点计算自己
-                ln.Enabled = ln.Children.Any(a => a.Enabled);
+                ln.Enabled = ln.Children.Where(a => !string.IsNullOrEmpty(a.Title)).Any(a => a.Enabled);
             }
             else// 我是最末节点
             {
