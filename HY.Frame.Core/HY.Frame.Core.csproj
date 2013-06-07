@@ -68,6 +68,7 @@
     <Compile Include="MAgentFactory.cs" />
     <Compile Include="Toolkit\ConfigBase.cs" />
     <Compile Include="Toolkit\Email.cs" />
+    <Compile Include="Toolkit\Md.cs" />
     <Compile Include="Toolkit\TemplateEngine.cs" />
     <Compile Include="Toolkit\Msg.cs" />
     <Compile Include="Toolkit\Query.cs" />
