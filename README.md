@@ -38,6 +38,5 @@ method 的返回值有多种选择 HY.Frame.Core.ResResult, HY.Frame.Core.JsonRe
 
 
 # OData v3
-在 .web项目中要使用v3, 需要nuget添加引用 
-WCF Data Services Client & 
-WCF Data Services Server
+在 .web项目中要使用v3, 需要nuget添加引用 WCF Data Services Client & WCF Data Services Server
+

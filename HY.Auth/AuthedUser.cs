@@ -42,21 +42,41 @@ namespace HY.Auth
         }
 
 
+        /// <summary>
+        /// 通过角色过滤后的树形链接
+        /// </summary>
+        /// <returns></returns>
         public List<LinkNode> GetNodes()
         {
             var node = InitTree(Root.Element("node"));
             SetNodeEnable(node);
-
+            RemoveNode(node);
             return node.Children;
+        }
+
+        public string GetTitleByUrl(string url)
+        {
+            foreach (var item in Root.Element("node").Descendants("node"))
+            {
+                if (item.Attribute("url").Value == url)
+                {
+                    return item.Attribute("title").Value;
+                }
+            }
+
+            return string.Empty;
         }
 
         protected void RemoveNode(LinkNode ln)
         {
-            ln.Children = ln.Children.Where(a => a.Enabled).ToList();
-            ln.Children.ForEach(a =>
+            ln.Children = ln.Children.Where(a => a.Enabled && !string.IsNullOrEmpty(a.Title)).ToList();
+            if (ln.Children.Count > 0)
             {
-                RemoveNode(a);
-            });
+                ln.Children.ForEach(a =>
+                {
+                    RemoveNode(a);
+                });
+            }
         }
 
 
@@ -144,7 +164,7 @@ namespace HY.Auth
 
             foreach (var item in mod.Elements("add"))
             {
-                var match = ls.FirstOrDefault(a => a.Title == item.Attribute("title").Value 
+                var match = ls.FirstOrDefault(a => a.Title == item.Attribute("title").Value
                     && a.Url == item.Attribute("url").Value
                     && a.Action == item.Attribute("action").Value);
                 if (match != null)
