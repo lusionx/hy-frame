@@ -17,6 +17,15 @@ namespace HY.Frame.Bis
             return test2("222", "dddd");
         }
 
+        [WebApi]
+        public object Test1()
+        {
+            var a = 1;
+            var b = 0;
+
+            return a / b;
+        }
+
         public ResResult ResResult()
         {
             return new ResResult { error = false, data = "wwww", msg = "msg" };

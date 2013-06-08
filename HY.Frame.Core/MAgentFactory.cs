@@ -72,6 +72,8 @@ namespace HY.Frame.Core
                 Assembly assem = GetAssembly(context.Request.PhysicalApplicationPath, path);
                 if (assem == null)
                 {
+
+                    Response.StatusCode = 404;
                     Response.Write("没有找到程序集");
                     return;
                 }
@@ -79,6 +81,7 @@ namespace HY.Frame.Core
                 instance = GetInstance(assem, clsName);
                 if (instance == null)
                 {
+                    Response.StatusCode = 404;
                     Response.Write("没有找到要访问的类");
                     return;
                 }
@@ -86,6 +89,7 @@ namespace HY.Frame.Core
                 methodInf = instance.GetType().GetMethod(mothod, BindingFlags.Instance | BindingFlags.Public | BindingFlags.IgnoreCase);
                 if (methodInf == null)
                 {
+                    Response.StatusCode = 404;
                     Response.Write("没有找到要访问的方法");
                     return;
                 }
@@ -93,6 +97,7 @@ namespace HY.Frame.Core
                 if (!methodInf.GetCustomAttributes(false).Any(a => a is WebApiAttribute)
                     && methodInf.ReturnType != typeof(ResResult))
                 {
+                    Response.StatusCode = 403;
                     Response.Write("拒绝访问方法");
                     return;
                 }
@@ -137,6 +142,7 @@ namespace HY.Frame.Core
             catch (Exception e)
             {
                 Log.Get(instance.GetType()).Error("Error.c", e);
+                Response.StatusCode = 500;
                 result = new ResResult { error = true, msg = e.Message };
             }
 
