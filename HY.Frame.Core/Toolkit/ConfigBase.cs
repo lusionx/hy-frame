@@ -24,6 +24,9 @@ namespace HY.Frame.Core.Toolkit
 
         private const string CACHE_PREFIX = "HY.Frame.Core.Toolkit.ConfigBase.CACHE_PREFIX.";
 
+        /// <summary>
+        /// 
+        /// </summary>
         public XElement Root
         {
             get

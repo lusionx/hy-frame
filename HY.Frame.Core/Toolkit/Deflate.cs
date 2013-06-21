@@ -62,7 +62,11 @@ namespace HY.Frame.Core.Toolkit
                 return outStream;
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="stream"></param>
+        /// <returns></returns>
         public static byte[] StreamToBytes(Stream stream)
         {
             byte[] bytes = new byte[stream.Length];
@@ -70,7 +74,11 @@ namespace HY.Frame.Core.Toolkit
             stream.Seek(0, SeekOrigin.Begin);
             return bytes;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="bytes"></param>
+        /// <returns></returns>
         public static Stream BytesToStream(byte[] bytes)
         {
             Stream stream = new MemoryStream(bytes);

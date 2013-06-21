@@ -15,6 +15,7 @@ namespace HY.Frame.Core
         /// </summary>         
         /// <param name="key">请自行保证,key不会重复，推荐使用当前类的fullname为前缀</param>
         /// <param name="obj"></param>
+        /// <param name="cacheHour"></param>
         public static void Add(string key, object obj, int cacheHour)
         {
             var cache = System.Web.HttpContext.Current.Cache;
@@ -23,6 +24,12 @@ namespace HY.Frame.Core
                 System.Web.Caching.Cache.NoSlidingExpiration);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="obj"></param>
+        /// <param name="span"></param>
         public static void Add(string key, object obj, TimeSpan span)
         {
             var cache = System.Web.HttpContext.Current.Cache;
@@ -55,7 +62,11 @@ namespace HY.Frame.Core
             }
             return obj as TResult;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public static object Get(string key)
         {
             var cache = System.Web.HttpContext.Current.Cache;
@@ -66,14 +77,21 @@ namespace HY.Frame.Core
             }
             return obj;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public static bool Exist(string key)
         {
             var cache = System.Web.HttpContext.Current.Cache;
             var obj = cache.Get(key);
             return obj != null;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="key"></param>
         public static void Remove(string key)
         {
             var cache = System.Web.HttpContext.Current.Cache;

@@ -26,14 +26,27 @@ namespace HY.Frame.Core
     /// </summary>
     public class MAgentFactory : IHttpHandler
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public bool IsReusable
         {
             get { return true; }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         protected HttpRequest Request { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         protected HttpResponse Response { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         protected log4net.ILog Logger { get; set; }
 
         private void Init(HttpContext context)
@@ -43,7 +56,10 @@ namespace HY.Frame.Core
             Logger.InfoFormat("url:{0}", Request.Url.OriginalString);
             Response = context.Response;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="context"></param>
         public void ProcessRequest(HttpContext context)
         {
             Init(context);
@@ -153,8 +169,11 @@ namespace HY.Frame.Core
             ResponseResult(result);
         }
 
-
-        protected void ResponseResult(object result)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="result"></param>
+        private void ResponseResult(object result)
         {
             Func<object, string> js = (e) => ObjectExtensions.ToJson(e);
             if (result is ResStringResult)
@@ -178,7 +197,7 @@ namespace HY.Frame.Core
                 //Response.AddHeader("Content-Type", "application/octet-stream");
                 //Response.OutputStream.Write( = result as Stream;
                 throw new NotImplementedException("不要用, 返回 stream 的方法 ");
-                Response.BinaryWrite(Deflate.StreamToBytes(result as Stream));
+                //Response.BinaryWrite(Deflate.StreamToBytes(result as Stream));
             }
             else
             {
@@ -214,8 +233,7 @@ namespace HY.Frame.Core
         /// <summary>
         /// 打算使用IL生成委托，但是搞不定啊
         /// </summary>
-        /// <param name="instance"></param>
-        /// <param name="mothod"></param>
+        /// <param name="methodInfo"></param>
         /// <returns></returns>
         [Obsolete("陷入无解")]
         internal Execute GetDelegateIL(MethodInfo methodInfo)
@@ -276,8 +294,8 @@ namespace HY.Frame.Core
         /// 得到一个 非void方法的 委托，我也看不懂 为啥
         /// 参考 http://blog.sina.com.cn/s/blog_638ea1960100ptsp.html
         /// </summary>
-        /// <param name="instance"></param>
-        /// <param name="mothod"></param>
+        /// <param name="methodInfo"></param>
+        /// <returns></returns>
         public Func<object, object[], object> GetDelegate(MethodInfo methodInfo)
         {
             ParameterExpression instanceParameter = Expression.Parameter(typeof(object), "instance");
@@ -299,7 +317,7 @@ namespace HY.Frame.Core
             return execute;
         }
 
-        protected object GetInstance(Assembly ass, string clsName)
+        private object GetInstance(Assembly ass, string clsName)
         {
             object instance = null;
             try

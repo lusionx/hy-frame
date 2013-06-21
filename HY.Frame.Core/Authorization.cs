@@ -3,6 +3,9 @@ using System.Web;
 
 namespace HY.Frame.Core
 {
+    /// <summary>
+    /// 实现自己的认证Module
+    /// </summary>
     public class Authorization : IHttpModule
     {        
         /// <summary>
@@ -14,8 +17,15 @@ namespace HY.Frame.Core
             return true;
         }
 
+        /// <summary>
+        /// 释放
+        /// </summary>
         public void Dispose() { }
 
+        /// <summary>
+        /// 初始化
+        /// </summary>
+        /// <param name="context"></param>
         public void Init(HttpApplication context)
         {
             context.BeginRequest += context_BeginRequest;

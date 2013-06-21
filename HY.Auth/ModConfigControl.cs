@@ -46,7 +46,7 @@ namespace HY.Auth
         }
 
 
-
+        [Obsolete]
         protected void RenderTable(HtmlTextWriter writer)
         {
             var u = new AuthedUser();

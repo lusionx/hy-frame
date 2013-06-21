@@ -6,8 +6,16 @@ using System.Text;
 
 namespace HY.Frame.Core
 {
+    /// <summary>
+    /// 向框架注册一些信息
+    /// </summary>
     public class Registration
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ty"></param>
+        /// <param name="i"></param>
         public static void ToJSON(Type ty, IJSON i)
         {
             if (_jsonMap.ContainsKey(ty))

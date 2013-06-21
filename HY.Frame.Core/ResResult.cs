@@ -10,8 +10,17 @@ namespace HY.Frame.Core
     /// </summary>
     public class ResResult
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public bool error { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
         public object data { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
         public string msg { get; set; }
     }
 

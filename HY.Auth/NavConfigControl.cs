@@ -47,6 +47,7 @@ namespace HY.Auth
 
         protected const int MAX_DEEP = 3;
 
+        [Obsolete]
         protected void RenderTable(HtmlTextWriter writer)
         {
             var u = new AuthedUser();
@@ -54,8 +55,7 @@ namespace HY.Auth
             writer.WriteBeginTag("table");
             writer.WriteAttribute("class", "table table-condensed table-hover table-bordered table-striped");
             writer.Write(">");
-
-            var lv = MAX_DEEP;
+            
             var roles = u.Root.Element("roles").Elements("add").Select(a => a.Attribute("name").Value).ToList();
 
             XElement txelm = null;
@@ -81,6 +81,7 @@ namespace HY.Auth
             writer.WriteEndTag("table");
         }
 
+        [Obsolete]
         protected List<XElement> RenderTbody(int deep, LinkNode node, List<string> roles)
         {
             if (string.IsNullOrEmpty(node.Title))

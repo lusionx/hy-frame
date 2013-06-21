@@ -6,8 +6,17 @@ using System.Text;
 
 namespace HY.Frame.Core
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class ConverExtensions
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="def"></param>
+        /// <returns></returns>
         public static int ToInt32(this string str, int def)
         {
             int v;
@@ -21,11 +30,22 @@ namespace HY.Frame.Core
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         public static int ToInt32(this string str)
         {
             return ConverExtensions.ToInt32(str, 0);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="def"></param>
+        /// <returns></returns>
         public static DateTime ToDateTime(this string str, DateTime def)
         {
             DateTime dt;
@@ -39,11 +59,22 @@ namespace HY.Frame.Core
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         public static DateTime ToDateTime(this string str)
         {
             return ToDateTime(str, DateTime.Now);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="def"></param>
+        /// <returns></returns>
         public static decimal ToDecimal(this string str, decimal def)
         {
             decimal s;
@@ -57,11 +88,21 @@ namespace HY.Frame.Core
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         public static decimal ToDecimal(this string str)
         {
             return ToDecimal(str, 0);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         public static Guid ToGuid(this string str)
         {
             return new Guid(str);

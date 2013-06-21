@@ -15,7 +15,11 @@ namespace HY.Frame.Core
         private static bool isInit = false; 
 
         //private static log4net.ILog _logger;
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="classtype"></param>
+        /// <returns></returns>
         public static log4net.ILog Get(Type classtype)
         {
             if (!isInit)

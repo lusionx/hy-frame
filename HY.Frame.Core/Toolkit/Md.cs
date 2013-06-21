@@ -6,9 +6,16 @@ using System.Text;
 
 namespace HY.Frame.Core.Toolkit
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class MD5
     {
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         public string Compute(string str)
         {
             if (string.IsNullOrEmpty(str))

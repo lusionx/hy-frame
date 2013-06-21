@@ -6,10 +6,16 @@ using System.Web.UI;
 
 namespace HY.Frame.Core
 {
+    /// <summary>
+    /// 
+    /// </summary>
    public static class WebExtensions
     {
-       private static readonly string _appPath;
-
+       /// <summary>
+       /// 
+       /// </summary>
+       /// <param name="uc"></param>
+       /// <returns></returns>
        public static string AppPath(this UserControl uc)
        {
            var path = uc.Request.ApplicationPath;
@@ -20,6 +26,11 @@ namespace HY.Frame.Core
            return path;
        }
 
+       /// <summary>
+       /// 
+       /// </summary>
+       /// <param name="uc"></param>
+       /// <returns></returns>
        public static string AppPath(this Page uc)
        {
            var path = uc.Request.ApplicationPath;

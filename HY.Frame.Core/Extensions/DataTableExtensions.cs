@@ -6,8 +6,16 @@ using System.Data;
 
 namespace HY.Frame.Core
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class DataTableExtensions
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <returns></returns>
         public static string ToJson(this DataTable dt)
         {
             StringBuilder sb = new StringBuilder();

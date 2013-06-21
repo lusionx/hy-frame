@@ -22,10 +22,17 @@ namespace HY.Frame.Core
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = false)]
     public class ActionBeforeHandlerAttribute : Attribute
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="handler"></param>
         public ActionBeforeHandlerAttribute(Type handler)
         {
             Handler = handler;
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public Type Handler { get; set; }
     }
 
@@ -35,10 +42,17 @@ namespace HY.Frame.Core
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = false)]
     public class ActionAfterHandlerAttribute : Attribute
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="handler"></param>
         public ActionAfterHandlerAttribute(Type handler)
         {
             Handler = handler;
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public Type Handler { get; set; }
     }
 }
