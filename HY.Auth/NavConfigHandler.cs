@@ -1,10 +1,17 @@
 ﻿using System;
 using System.Web;
+using System.Collections.Generic;
+using System.Collections;
 using HY.Frame.Core.Toolkit;
 using HY.Frame.Core;
+using System.Xml.Linq;
+using System.Linq;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace HY.Auth
 {
+
     public class NavConfigHandler : IHttpHandler
     {
         /// <summary>
@@ -20,6 +27,75 @@ namespace HY.Auth
         }
 
         public void ProcessRequest(HttpContext context)
+        {
+            if (context.Request.HttpMethod.ToUpper() == "GET")
+            {
+                Get(context);
+            }
+            if (context.Request.HttpMethod.ToUpper() == "POST")
+            {
+                Post(context);
+            }
+        }
+
+        protected void Get(HttpContext context)
+        {
+            var u = new AuthedUser();
+            var root = u.InitTree(u.Root.Element("node"));
+            var roles = u.Root.Element("roles").Elements("add").Select(a => a.Attribute("name").Value).ToList();
+
+
+            var jw = new JsonTextWriter(context.Response.Output);
+
+            jw.WriteStartArray();
+            JWRPT(root, roles, jw);
+            jw.WriteEndArray();
+
+
+            jw.Close();
+
+        }
+
+        protected void JWRPT(LinkNode root, List<string> roles, JsonWriter jw)
+        {
+            foreach (var n in root.Children)
+            {
+                if (!n.Enabled || (n.Title == n.Url && n.Url == string.Empty))
+                {
+                    continue;
+                }
+                jw.WriteStartObject();
+                jw.WritePropertyName("Title");
+                jw.WriteValue(n.Title);
+                jw.WritePropertyName("Url");
+                jw.WriteValue(n.Url);
+                jw.WritePropertyName("leaf");
+                jw.WriteValue(n.Children.Count == 0);
+
+
+                foreach (var r in roles)
+                {
+                    jw.WritePropertyName(r);
+                    jw.WriteValue(n.Roles.Contains(r));
+                }
+
+                jw.WritePropertyName("children");
+                jw.WriteStartArray();
+
+                if (n.Children.Count > 0)
+                {
+                    JWRPT(n, roles, jw);
+                }
+
+                jw.WriteEndArray();
+                jw.WriteEndObject();
+
+            }
+        }
+
+
+
+        protected void Post(HttpContext context)
         {
             var u = new AuthedUser();
             var rep = context.Response;

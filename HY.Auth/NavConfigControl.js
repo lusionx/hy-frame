@@ -27,64 +27,27 @@
                 }
             }();
 
-            //alert(Ext.JSON.encode(fields));
-
-            //构建数据
-            var data = {
-                "Title": ".",
-                "children": []
-            };
-
-            !function () {
-                for (var i = 0; i < NavConfig.tree.Children.length; i++) {//lv1
-                    var c = NavConfig.tree.Children[i];
-                    if (c.Title == '') continue;
-                    var n = { Title: c.Title, Url: c.Url, children: [], leaf: c.Children.length == 0 };
-                    for (var i_r = 0; i_r < c.Roles.length; i_r++) {
-                        n[c.Roles[i_r]] = true;
-                    }
-                    data.children.push(n);
-
-                    for (var ii = 0; ii < c.Children.length; ii++) {
-                        var cc = c.Children[ii];
-                        if (cc.Title == '') continue;
-                        var nn = { Title: cc.Title, Url: cc.Url, children: [], leaf: cc.Children.length == 0 };
-                        for (var ii_r = 0; ii_r < cc.Roles.length; ii_r++) {
-                            nn[cc.Roles[ii_r]] = true;
-                        }
-                        n.children.push(nn);
-
-                        for (var iii = 0; iii < cc.Children.length; iii++) {
-                            var ccc = cc.Children[iii];
-                            if (ccc.Title == '') continue;
-                            var nnn = { Title: ccc.Title, Url: ccc.Url, children: [], leaf: ccc.Children.length == 0 };
-                            for (var iii_r = 0; iii_r < ccc.Roles.length; iii_r++) {
-                                nnn[ccc.Roles[iii_r]] = true;
-                            }
-                            nn.children.push(nnn);
-                        }
-                    }
-                }
-            }();
-
-            //alert(Ext.JSON.encode(data));
-
             Ext.define('NavModel', {
                 extend: 'Ext.data.Model',
                 fields: fields
             });
 
-            NavConfig.data = data;
-
-            // 希望使用 proxy[type=memory] 实现重置, 但没成功
             var NavStore = Ext.create('Ext.data.TreeStore', {
-                autoLoad: true,
+                //autoLoad: true,
                 model: NavModel,
                 proxy: {
-                    type: 'memory',
-                    reader: { type: 'json' }
+                    type: 'ajax',
+                    url: '.NavConfig'
                 },
-                root: NavConfig.data
+                //root: NavConfig.data,
+                root: { Title: ".", leaf: false, },
+                sorters: [{
+                    property: 'leaf',
+                    direction: 'ASC'
+                }, {
+                    property: 'Title',
+                    direction: 'ASC'
+                }]
             });
 
             Ext.create('Ext.tree.Panel', {
@@ -145,11 +108,11 @@
                     xtype: 'button',
                     text: '重 置',
                     handler: function () {
-                        window.location.reload();
-                        return;
+                        NavStore.reload();
+                        return false;
                         var node = NavStore.getRootNode().childNodes[0].data
                         for (var i = 0; i < NavConfig.roles.length; i++) {
-                            node[NavConfig.roles[i]] = true;
+                            //node[NavConfig.roles[i]] = true;
                         }
                     }
                 }],
@@ -170,7 +133,7 @@
             } else {
                 wait();
             }
-        }, 1000);
+        }, 200);
     }
     wait();
 

@@ -44,7 +44,7 @@ namespace HY.Auth
             {
                 id = this.ClientID,
                 key = "authcfg",
-                tree = u.InitTree(u.Root.Element("node")),
+                //tree = u.InitTree(u.Root.Element("node")),
                 roles = u.Root.Element("roles").Elements("add").Select(a => a.Attribute("name").Value).ToList()
             };
 
