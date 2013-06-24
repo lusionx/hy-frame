@@ -2,6 +2,7 @@
 
 !function () {
     var bis = function () {
+        //return;
         Ext.onReady(function () {
             var columns = [{
                 xtype: 'treecolumn',
@@ -12,17 +13,29 @@
             }];
             var fields = [{ name: 'Title', type: 'string' }, { name: 'Url', type: 'string' }];
 
+            Ext.define('Nav.CheckColumn', {
+                extend: 'Ext.grid.column.CheckColumn',
+                renderer: function (value, meta, record) {
+                    var me = this;
+                    if (record.data.leaf) {
+                        return me.callParent(arguments);
+                    } else {
+                        return "";
+                    }
+                }
+            });
+
             //构建列
             !function () {
                 for (var i = 0; i < NavConfig.roles.length; i++) {
-                    columns.push({
-                        xtype: 'checkcolumn',
+                    columns.push(Ext.create('Nav.CheckColumn', {
+                        //xtype: 'checkcolumn',
                         text: NavConfig.roles[i],
                         flex: 1,
                         sortable: false,
                         hideable: false,
                         dataIndex: NavConfig.roles[i]
-                    });
+                    }));
                     fields.push({ name: NavConfig.roles[i], type: 'boolean' });
                 }
             }();
@@ -99,6 +112,7 @@
                             success: function (response) {
                                 var obj = Ext.JSON.decode(response.responseText);
                                 if (!obj.error) {
+                                    NavStore.reload();
                                     Ext.Msg.alert('成功', '保存成功');
                                 }
                             }
