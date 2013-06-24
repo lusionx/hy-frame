@@ -53,14 +53,14 @@
                     url: '.NavConfig'
                 },
                 //root: NavConfig.data,
-                root: { Title: ".", leaf: false, },
-                sorters: [{
+                root: { Title: ".", leaf: false }
+                /*sorters: [{
                     property: 'leaf',
                     direction: 'ASC'
                 }, {
                     property: 'Title',
                     direction: 'ASC'
-                }]
+                }]*/
             });
 
             Ext.create('Ext.tree.Panel', {
@@ -72,6 +72,9 @@
                 singleExpand: true,
                 width: '100%',
                 //columnLines: true,
+                viewConfig: {
+                    markDirty: false
+                },
                 rowLines: true,
                 columns: columns,
                 bbar: [{ xtype: 'tbtext', text: ' ', width: 400 }, {
