@@ -9,7 +9,7 @@
     <!--只有最末的节点的roles才有效, 父节点的node.roles由子节点计算得来
     title="" 是特殊的, 用来做特殊标记, 有时忽略
     -->
-    <node url="/" title="Home" desc="" roles="admin,sys,user" />
+    <node url="/" title="Home" desc="" roles="admin,user" />
     <node url="#" title="" desc="divider-vertical" roles="" />
     <node url="/View/JaySample.aspx" title="Jay" desc="" roles="sys" />
     <node url="/View/Query.aspx" title="Query" desc="" roles="" />

@@ -3,23 +3,16 @@
 <%@ Register Assembly="HY.Auth" TagPrefix="uc" Namespace="HY.Auth" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    
+    <link rel="stylesheet" href="//ext.lxing.me/resources/css/ext-all.css">
+    <script src="//ext.lxing.me/bootstrap.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="main" runat="server">
-    <uc:NavConfigControl runat="server" CssClass="navcfg" />
+    <div class="row">
+        <div class="span12">
+            <uc:NavConfigControl ID="NavConfigControl1" runat="server" CssClass="navcfg" />
+        </div>
+    </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="foot" runat="server">
-    <script>
-        $(function () {
-            $('body').on('dblclick', function () {
-                // test
-                var RECLS = './UpdateAuth.ashx';
-                var vv = $('#' + NavConfig.id).data(NavConfig.key);
-
-                $.post(RECLS, { nav: vv }, function (obj) {
-
-                }, 'json');
-            });
-        });
-    </script>
+    
 </asp:Content>

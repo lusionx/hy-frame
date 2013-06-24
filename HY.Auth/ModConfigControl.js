@@ -1,7 +1,7 @@
 ﻿
 
 !function () {
-    var bis = function () {
+    var bis = function () {/*
         $(function () {
             $('#' + ModConfig.id).on('change', ':checkbox', function () {
                 var key = ModConfig.key;
@@ -25,7 +25,7 @@
                 $('#' + ModConfig.id).data(key, ms);
             });
             $('#' + ModConfig.id + ' :checkbox').eq(0).trigger('change');
-        });
+        });*/
     };
 
     var check = function () {

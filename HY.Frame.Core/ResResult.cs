@@ -11,6 +11,14 @@ namespace HY.Frame.Core
     public class ResResult
     {
         /// <summary>
+        /// error = false; msg = "ok";
+        /// </summary>
+        public ResResult()
+        {
+            error = false;
+            msg = "ok";
+        }
+        /// <summary>
         /// 
         /// </summary>
         public bool error { get; set; }
