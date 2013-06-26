@@ -108,6 +108,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
+    <None Include="Properties\PublishProfiles\Pub.pubxml" />
     <None Include="Scripts\jaydata-vsdoc.js" />
     <Content Include="Scripts\datajs-1.1.0.js" />
     <Content Include="Scripts\datajs-1.1.0.min.js" />

@@ -3,8 +3,13 @@
 <%@ Register Assembly="HY.Auth" TagPrefix="uc" Namespace="HY.Auth" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link rel="stylesheet" href="//ext.lxing.me/resources/css/ext-all.css">
-    <script src="//ext.lxing.me/bootstrap.js"></script>
+    <link rel="stylesheet" href="//ext.150.me/resources/css/ext-all.css">
+    <script src="//ext.150.me/bootstrap.js"></script>
+    <style>
+        .x-body {
+             font-size:14px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="main" runat="server">
     <div class="row">
@@ -14,5 +19,7 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="foot" runat="server">
-    
+    <script>
+        
+    </script>
 </asp:Content>

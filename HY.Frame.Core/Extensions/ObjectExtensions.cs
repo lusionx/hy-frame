@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+
 namespace HY.Frame.Core
 {
     /// <summary>
@@ -17,8 +18,9 @@ namespace HY.Frame.Core
         /// <returns></returns>
         public static string ToJson(object obj)
         {
-            System.Web.Script.Serialization.JavaScriptSerializer jss = new System.Web.Script.Serialization.JavaScriptSerializer();
-            return jss.Serialize(obj);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(obj);
+            //   System.Web.Script.Serialization.JavaScriptSerializer jss = new System.Web.Script.Serialization.JavaScriptSerializer();
+            // return jss.Serialize(obj);
         }
     }
 }

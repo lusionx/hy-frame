@@ -77,7 +77,7 @@
                 },
                 rowLines: true,
                 columns: columns,
-                bbar: [{ xtype: 'tbtext', text: ' ', width: 400 }, {
+                bbar: ['->', {
                     xtype: 'button',
                     text: '保 存',
                     handler: function () {
@@ -132,7 +132,7 @@
                             //node[NavConfig.roles[i]] = true;
                         }
                     }
-                }],
+                }, '->'],
                 renderTo: NavConfig.id
             });
 

@@ -5,7 +5,7 @@ hy-frame
 核心代码全在 HY.Frame.Core 项目中
 
 ## 项目依赖
-log4net
+log4net, Newtonsoft.Json, 
 
 ## 扩展方法
 在命名空间 HY.Frame.Core
