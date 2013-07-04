@@ -15,44 +15,41 @@ namespace HY.Frame.Core
 
     }
 
-
     /// <summary>
-    /// 修饰一个方法, 在调用方法之前,调用handler, 需要实现 IHttpHandler
+    /// 
     /// </summary>
-    [AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = false)]
-    public class ActionBeforeHandlerAttribute : Attribute
+    public abstract class ActionHandlerAttribute : Attribute
     {
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="handler"></param>
-        public ActionBeforeHandlerAttribute(Type handler)
-        {
-            Handler = handler;
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        public Type Handler { get; set; }
+        /// <param name="context"></param>
+        public abstract void ProcessRequest(HttpContext context);
     }
 
     /// <summary>
-    /// 修饰一个方法, 在调用方法之后,调用handler, 需要实现 IHttpHandler
+    /// 修饰一个方法, 在调用方法之前,调用ProcessRequest
     /// </summary>
-    [AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = false)]
-    public class ActionAfterHandlerAttribute : Attribute
+    [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
+    public abstract class ActionBeforeHandlerAttribute : ActionHandlerAttribute
     {
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="handler"></param>
-        public ActionAfterHandlerAttribute(Type handler)
-        {
-            Handler = handler;
-        }
+        /// <param name="context"></param>
+        public abstract override void ProcessRequest(HttpContext context);
+    }
+
+    /// <summary>
+    /// 修饰一个方法, 在调用方法之后,调用ProcessRequest
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
+    public abstract class ActionAfterHandlerAttribute : ActionHandlerAttribute
+    {
         /// <summary>
         /// 
         /// </summary>
-        public Type Handler { get; set; }
+        /// <param name="context"></param>
+        public abstract override void ProcessRequest(HttpContext context);
     }
 }

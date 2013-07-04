@@ -135,24 +135,24 @@ namespace HY.Frame.Core
             object result = null;
             try
             {
-                var handlers = from a in methodInf.GetCustomAttributes(false)
+                var handlers = from a in methodInf.GetCustomAttributes(true)
                                where a is ActionBeforeHandlerAttribute
-                               select (a as ActionBeforeHandlerAttribute).Handler;
+                               select (a as ActionHandlerAttribute);
 
                 foreach (var handler in handlers.ToList())
                 {
-                    (handler.Assembly.CreateInstance(handler.FullName) as IHttpHandler).ProcessRequest(context);
+                    handler.ProcessRequest(context);
                 }
 
                 result = func(instance, parVs);
 
-                handlers = from a in methodInf.GetCustomAttributes(false)
+                handlers = from a in methodInf.GetCustomAttributes(true)
                            where a is ActionAfterHandlerAttribute
-                           select (a as ActionAfterHandlerAttribute).Handler;
+                           select (a as ActionHandlerAttribute);
 
                 foreach (var handler in handlers.ToList())
                 {
-                    (handler.Assembly.CreateInstance(handler.FullName) as IHttpHandler).ProcessRequest(context);
+                    handler.ProcessRequest(context);
                 }
             }
             catch (Exception e)
