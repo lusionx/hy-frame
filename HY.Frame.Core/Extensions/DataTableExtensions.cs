@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
+using Newtonsoft.Json;
 
 namespace HY.Frame.Core
 {
@@ -12,53 +13,69 @@ namespace HY.Frame.Core
     public static class DataTableExtensions
     {
         /// <summary>
-        /// 
+        /// 使用Newtonsoft.Json.Converters.DataTableConverte进行转换
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
         public static string ToJson(this DataTable dt)
         {
-            StringBuilder sb = new StringBuilder();
-            var dt_star = new DateTime(1970, 1, 1);
-            string[] cm = { "[", "]" };
-            string[] cl = { "{", "}" };
-            string[] sp = { ",", ":", "\"{0}\"", "new Date({0})" };
+            System.IO.StringWriter sw = new System.IO.StringWriter();
 
-            sb.Append(cm[0]);
+            JsonTextWriter jw = new JsonTextWriter(sw);
+
+            Newtonsoft.Json.Converters.DataTableConverter cv = new Newtonsoft.Json.Converters.DataTableConverter();
+
+            cv.WriteJson(jw, dt, new JsonSerializer());
+
+            return sw.ToString();
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <returns></returns>
+        public static string ToJson2(this DataTable dt)
+        {
+            System.IO.StringWriter sw = new System.IO.StringWriter();
+            JsonTextWriter writer = new JsonTextWriter(sw);
+            var dt_star = new DateTime(1970, 1, 1); 
+
+            Newtonsoft.Json.Converters.JavaScriptDateTimeConverter dtc = new Newtonsoft.Json.Converters.JavaScriptDateTimeConverter();
+
+            writer.WriteStartArray();
             var vtype = new Type[] { typeof(int), typeof(float), typeof(decimal) };
             foreach (var dr in dt.AsEnumerable())
             {
-                sb.Append(cl[0]);
-                for (int i = 0; i < dt.Columns.Count; i++)
+                writer.WriteStartObject();
+                foreach (DataColumn col in dt.Columns)
                 {
-                    sb.AppendFormat(sp[2], dt.Columns[i].ColumnName);
-                    sb.Append(sp[1]);
-                    var v = dr[i];
+                    writer.WritePropertyName(col.ColumnName);
+                    var v = dr[col.ColumnName];
                     if (vtype.Contains(v.GetType()))
                     {
-                        sb.Append(v);
+                        writer.WriteRawValue(v.ToString());
                     }
                     else if (v is DBNull)
                     {
-                        sb.Append("null");
+                        writer.WriteNull();
                     }
                     else if (v is DateTime)
                     {
-                        sb.AppendFormat(sp[3], Convert.ToInt64(((DateTime)v - dt_star).TotalMilliseconds));
+                        var ms = Convert.ToInt64(((DateTime)v - dt_star).TotalMilliseconds);
+                        dtc.WriteJson(writer, v, new JsonSerializer());
                     }
                     else
                     {
-                        sb.AppendFormat(sp[2], v);
+                        writer.WriteRawValue(v.ToString());
                     }
-                    sb.Append(sp[0]);
+                    writer.WriteEndObject();
                 }
-                sb.Remove(sb.Length - 1, 1);
-                sb.Append(cl[1]);
-                sb.Append(sp[0]);
+                
             }
-            sb.Remove(sb.Length - 1, 1);
-            sb.Append(cm[1]);
-            return sb.ToString();
+            writer.WriteEndArray();
+            return sw.ToString();
         }
 
 
