@@ -21,6 +21,9 @@ namespace HY.Frame.Core.Toolkit
         {
 
             byte[] inBuffer = new byte[eam.Length];
+
+            eam.Position = 0;
+
             eam.Read(inBuffer, 0, inBuffer.Length);
 
             var outStream = new MemoryStream();
@@ -51,11 +54,13 @@ namespace HY.Frame.Core.Toolkit
         public static Stream Decompress(Stream eam, int skip)
         {
             // fix bug http://social.msdn.microsoft.com/Forums/zh-CN/visualcshartzhchs/thread/dbb43f3d-1ffa-44a9-91b5-924d705a74aa
+
+            eam.Position = 0;
             for (int i = 0; i < skip; i++)
             {
                 eam.ReadByte();
             }
-            using (var press = new DeflateStream(eam, CompressionMode.Decompress, eam is MemoryStream))
+            using (var press = new DeflateStream(eam, CompressionMode.Decompress, true))
             {
                 var outStream = new MemoryStream();
                 press.CopyTo(outStream);
