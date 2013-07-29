@@ -47,7 +47,7 @@ namespace HY.Frame.Core
             var i = 0;
             foreach (var t in scource)
             {
-                predicate(i, t);
+                predicate(i++, t);
             }
         }
 
