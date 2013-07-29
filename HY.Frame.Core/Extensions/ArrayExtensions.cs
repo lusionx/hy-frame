@@ -28,6 +28,35 @@ namespace HY.Frame.Core
         /// <typeparam name="T"></typeparam>
         /// <param name="scource"></param>
         /// <param name="predicate"></param>
+        public static void ForEach<T>(this IEnumerable<T> scource, Action<T> predicate)
+        {
+            foreach (var t in scource)
+            {
+                predicate(t);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="scource"></param>
+        /// <param name="predicate"></param>
+        public static void ForEach<T>(this IEnumerable<T> scource, Action<int, T> predicate)
+        {
+            var i = 0;
+            foreach (var t in scource)
+            {
+                predicate(i, t);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="scource"></param>
+        /// <param name="predicate"></param>
         public static void Action<T>(this IEnumerable<T> scource, Action<T> predicate)
         {
             foreach (var t in scource)

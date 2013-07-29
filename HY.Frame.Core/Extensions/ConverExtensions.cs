@@ -44,6 +44,35 @@ namespace HY.Frame.Core
         /// 
         /// </summary>
         /// <param name="str"></param>
+        /// <param name="dft"></param>
+        /// <returns></returns>
+        public static long ToInt64(this string str, long dft)
+        {
+            long v ;
+            if (long.TryParse(str, out v))
+            {
+                return v;
+            }
+            else
+            {
+                return dft;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static long ToInt64(this string str)
+        {
+            return ConverExtensions.ToInt64(str, 0);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="str"></param>
         /// <param name="def"></param>
         /// <returns></returns>
         public static DateTime ToDateTime(this string str, DateTime def)
