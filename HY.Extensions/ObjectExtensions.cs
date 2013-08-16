@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-
-namespace HY.Frame.Core
+namespace System
 {
     /// <summary>
     /// Object扩展
@@ -18,7 +17,7 @@ namespace HY.Frame.Core
         /// <returns></returns>
         public static string ToJson(object obj)
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(obj);            
+            return Newtonsoft.Json.JsonConvert.SerializeObject(obj);
         }
         /// <summary>
         /// 使用Newtonsoft.Json进行反JSON

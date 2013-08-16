@@ -76,6 +76,10 @@
     <Compile Include="Qdb.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HY.Extensions\HY.Extensions.csproj">
+      <Project>{ee118502-6a60-4d83-ae35-36c2bc5c964c}</Project>
+      <Name>HY.Extensions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HY.Frame.Core\HY.Frame.Core.csproj">
       <Project>{04cd4d75-ca99-4c7d-a5b8-d9c88a4c3574}</Project>
       <Name>HY.Frame.Core</Name>

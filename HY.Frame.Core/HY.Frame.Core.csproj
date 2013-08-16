@@ -69,11 +69,7 @@
     <Compile Include="IJSON.cs" />
     <Compile Include="Registration.cs" />
     <Compile Include="ResResult.cs" />
-    <Compile Include="Extensions\ArrayExtensions.cs" />
     <Compile Include="Extensions\WebExtensions.cs" />
-    <Compile Include="Extensions\ConverExtensions.cs" />
-    <Compile Include="Extensions\DataTableExtensions.cs" />
-    <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="MAgentFactory.cs" />
     <Compile Include="Toolkit\ConfigBase.cs" />
@@ -87,6 +83,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HY.Extensions\HY.Extensions.csproj">
+      <Project>{ee118502-6a60-4d83-ae35-36c2bc5c964c}</Project>
+      <Name>HY.Extensions</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

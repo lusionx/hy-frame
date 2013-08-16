@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HY.Frame.CMD", "HY.Frame.CM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HY.Auth", "HY.Auth\HY.Auth.csproj", "{4F9539D8-151D-4890-A019-F32B74DE84A4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HY.Extensions", "HY.Extensions\HY.Extensions.csproj", "{EE118502-6A60-4D83-AE35-36C2BC5C964C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{4F9539D8-151D-4890-A019-F32B74DE84A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F9539D8-151D-4890-A019-F32B74DE84A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F9539D8-151D-4890-A019-F32B74DE84A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE118502-6A60-4D83-AE35-36C2BC5C964C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE118502-6A60-4D83-AE35-36C2BC5C964C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE118502-6A60-4D83-AE35-36C2BC5C964C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE118502-6A60-4D83-AE35-36C2BC5C964C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

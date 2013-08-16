@@ -4,7 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace HY.Frame.Core
+namespace System
 {
     /// <summary>
     /// 
@@ -48,7 +48,7 @@ namespace HY.Frame.Core
         /// <returns></returns>
         public static long ToInt64(this string str, long dft)
         {
-            long v ;
+            long v;
             if (long.TryParse(str, out v))
             {
                 return v;

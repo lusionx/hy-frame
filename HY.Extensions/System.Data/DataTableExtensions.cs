@@ -1,16 +1,16 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
-using System.Data;
-using Newtonsoft.Json;
 
-namespace HY.Frame.Core
+namespace System.Data
 {
     /// <summary>
     /// 
     /// </summary>
-    public static class DataTableExtensions
+    public static class DataTableExtensionsMy
     {
         /// <summary>
         /// 使用Newtonsoft.Json.Converters.DataTableConverte进行转换
@@ -40,7 +40,7 @@ namespace HY.Frame.Core
         {
             System.IO.StringWriter sw = new System.IO.StringWriter();
             JsonTextWriter writer = new JsonTextWriter(sw);
-            var dt_star = new DateTime(1970, 1, 1); 
+            var dt_star = new DateTime(1970, 1, 1);
 
             Newtonsoft.Json.Converters.JavaScriptDateTimeConverter dtc = new Newtonsoft.Json.Converters.JavaScriptDateTimeConverter();
 
@@ -72,12 +72,30 @@ namespace HY.Frame.Core
                     }
                     writer.WriteEndObject();
                 }
-                
+
             }
             writer.WriteEndArray();
             return sw.ToString();
         }
 
+        /// <summary>
+        /// 根据条件, 过滤掉部分数据
+        /// </summary>
+        /// <param name="dts"></param>
+        /// <param name="ff"></param>
+        /// <returns></returns>
+        public static DataTable Where(this DataTable dts, Func<DataRow, bool> ff)
+        {
+            var dt = dts.Clone();
+            foreach (var item in dts.AsEnumerable())
+            {
+                if (ff(item))
+                {
+                    dt.Rows.Add(item.ItemArray);
+                }
+            }
+            return dt;
+        }
 
         /// <summary>
         /// 把 byte[] 列类型数据 转换成 guid
@@ -127,7 +145,7 @@ namespace HY.Frame.Core
         /// <returns></returns>
         public static DataTable ConverColDateToString(this DataTable dt)
         {
-            return DataTableExtensions.ConverColDateToString(dt, "yyyy-MM-dd");
+            return DataTableExtensionsMy.ConverColDateToString(dt, "yyyy-MM-dd");
         }
 
         /// <summary>

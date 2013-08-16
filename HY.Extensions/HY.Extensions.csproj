@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4F9539D8-151D-4890-A019-F32B74DE84A4}</ProjectGuid>
+    <ProjectGuid>{EE118502-6A60-4D83-AE35-36C2BC5C964C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HY.Auth</RootNamespace>
-    <AssemblyName>HY.Auth</AssemblyName>
+    <RootNamespace>HY.Extensions</RootNamespace>
+    <AssemblyName>HY.Extensions</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -20,7 +20,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\HY.Auth.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,17 +30,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,29 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthedUser.cs" />
-    <Compile Include="LinkNode.cs" />
-    <Compile Include="ModConfigControl.cs" />
-    <Compile Include="ModNode.cs" />
-    <Compile Include="NavConfigControl.cs" />
-    <Compile Include="NavConfigHandler.cs" />
+    <Compile Include="System.Collections.Generic\ArrayExtensions.cs" />
+    <Compile Include="BooleanExtensions.cs" />
+    <Compile Include="ConverExtensions.cs" />
+    <Compile Include="System.Data\DataTableExtensions.cs" />
+    <Compile Include="ObjectExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\HY.Extensions\HY.Extensions.csproj">
-      <Project>{ee118502-6a60-4d83-ae35-36c2bc5c964c}</Project>
-      <Name>HY.Extensions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\HY.Frame.Core\HY.Frame.Core.csproj">
-      <Project>{04cd4d75-ca99-4c7d-a5b8-d9c88a4c3574}</Project>
-      <Name>HY.Frame.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="NavConfigControl.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="ModConfigControl.js" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
