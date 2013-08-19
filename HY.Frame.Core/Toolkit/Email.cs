@@ -30,11 +30,11 @@ namespace HY.Frame.Core.Toolkit
                 {
                     if (e.Error == null)
                     {
-                        Log.Get(this.GetType()).InfoFormat("Email send to {0}", e.UserState);
+                        this.Log4().InfoFormat("Email send to {0}", e.UserState);
                     }
                     else
                     {
-                        Log.Get(this.GetType()).Error("Email send to Error(" + e.UserState.ToString() + ")", e.Error);
+                        this.Log4().Error("Email send to Error(" + e.UserState.ToString() + ")", e.Error);
                     }
                 });
             client.SendAsync(msg, tomail);

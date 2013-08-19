@@ -70,7 +70,6 @@
     <Compile Include="Registration.cs" />
     <Compile Include="ResResult.cs" />
     <Compile Include="Extensions\WebExtensions.cs" />
-    <Compile Include="Log.cs" />
     <Compile Include="MAgentFactory.cs" />
     <Compile Include="Toolkit\ConfigBase.cs" />
     <Compile Include="Toolkit\Email.cs" />

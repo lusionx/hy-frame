@@ -26,6 +26,10 @@ namespace HY.Auth
             get { return false; }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="context"></param>
         public void ProcessRequest(HttpContext context)
         {
             if (context.Request.HttpMethod.ToUpper() == "GET")
@@ -38,6 +42,10 @@ namespace HY.Auth
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="context"></param>
         protected void Get(HttpContext context)
         {
             var u = new AuthedUser();
@@ -56,7 +64,7 @@ namespace HY.Auth
 
         }
 
-        protected void JWRPT(LinkNode root, List<string> roles, JsonWriter jw)
+        private void JWRPT(LinkNode root, List<string> roles, JsonWriter jw)
         {
             foreach (var n in root.Children)
             {
@@ -94,7 +102,10 @@ namespace HY.Auth
         }
 
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="context"></param>
         protected void Post(HttpContext context)
         {
             var u = new AuthedUser();
@@ -109,7 +120,7 @@ namespace HY.Auth
             }
             catch (Exception e)
             {
-                HY.Frame.Core.Log.Get(this.GetType()).Error("保存出错", e);
+                this.Log4().Error("保存出错", e);
                 rep.StatusCode = 500;
                 var obj = new HY.Frame.Core.ResResult { error = true, msg = e.Message };
                 rep.Write(ObjectExtensions.ToJson(obj));

@@ -51,7 +51,7 @@ namespace HY.Frame.Core
 
         private void Init(HttpContext context)
         {
-            Logger = Log.Get(this.GetType());
+            Logger = this.Log4();
             Request = context.Request;
             Logger.InfoFormat("url:{0}", Request.Url.OriginalString);
             Response = context.Response;
@@ -157,7 +157,7 @@ namespace HY.Frame.Core
             }
             catch (Exception e)
             {
-                Log.Get(instance.GetType()).Error("Error.c", e);
+                Logger.Error("Error.c", e);
                 Response.StatusCode = 500;
                 result = new ResResult { error = true, msg = e.Message };
             }

@@ -10,7 +10,7 @@ namespace System.Data
     /// <summary>
     /// 
     /// </summary>
-    public static class DataTableExtensionsMy
+    public static class DataTableExtensionsHY
     {
         /// <summary>
         /// 使用Newtonsoft.Json.Converters.DataTableConverte进行转换
@@ -145,7 +145,7 @@ namespace System.Data
         /// <returns></returns>
         public static DataTable ConverColDateToString(this DataTable dt)
         {
-            return DataTableExtensionsMy.ConverColDateToString(dt, "yyyy-MM-dd");
+            return DataTableExtensionsHY.ConverColDateToString(dt, "yyyy-MM-dd");
         }
 
         /// <summary>
